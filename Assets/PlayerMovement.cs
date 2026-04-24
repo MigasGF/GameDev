@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
 void Update()
 {
+    if (Input.GetKeyDown(KeyCode.Space)) // tecla espaço
+    {
+        anim.SetTrigger("jump");
+    }
+
     if (Input.GetMouseButtonDown(0)) // clique esquerdo
 {
     anim.SetTrigger("bash");
