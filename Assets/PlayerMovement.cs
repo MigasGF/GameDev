@@ -84,10 +84,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // O esqueleto chama esta função quando te ataca
-    public void ReceberDano(float dano)
+    public void ReceberDano(float dano, Transform atacante)
     {
         if (estaMorto) return;
+
+        if (Input.GetMouseButton(1))
+        {
+            Vector3 direcaoDoAtaque = (atacante.position - transform.position).normalized;
+            direcaoDoAtaque.y = 0; 
+            float angulo = Vector3.Angle(transform.forward, direcaoDoAtaque);
+
+            if (angulo <= 70f)
+            {
+                Debug.Log("Bloqueaste o ataque com o escudo de frente!");
+                return; 
+            }
+            else
+            {
+                Debug.Log("Ai! Levaste dano pelas costas ou lado!");
+            }
+        }
 
         vidaAtual -= dano;
         if (barraVidaPlayer != null) barraVidaPlayer.value = vidaAtual;
@@ -95,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (vidaAtual <= 0)
         {
             estaMorto = true;
-            anim.SetTrigger("die"); // Tens de ter um trigger "die" no Animator do Knight para ele cair morto
+            anim.SetTrigger("die"); 
             controller.enabled = false;
             Debug.Log("Morreste!");
         }

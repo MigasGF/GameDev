@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI; // Obriga o script a perceber o que é um "Slider"
+using UnityEngine.UI; 
 
 public class InteligenciaEsqueleto : MonoBehaviour
 {
@@ -13,14 +13,13 @@ public class InteligenciaEsqueleto : MonoBehaviour
     private float temporizador; 
 
     // --- SISTEMA DE VIDA ---
-    public Slider barraVidaInimigo; // Arrasta a barra de vida do esqueleto para aqui
+    public Slider barraVidaInimigo; 
     public float vidaAtual = 100f;
-    public float danoDoAtaque = 15f; // Quanto de vida ele tira ao Cavaleiro
+    public float danoDoAtaque = 15f; 
     private bool estaMorto = false;
 
     void Start()
     {
-        // Configura a barra no início
         if (barraVidaInimigo != null)
         {
             barraVidaInimigo.maxValue = 100f;
@@ -30,7 +29,7 @@ public class InteligenciaEsqueleto : MonoBehaviour
 
     void Update()
     {
-        if (estaMorto) return; // Se estiver morto, ignora o resto do código!
+        if (estaMorto) return; 
 
         float distancia = Vector3.Distance(transform.position, player.position);
 
@@ -50,11 +49,10 @@ public class InteligenciaEsqueleto : MonoBehaviour
             {
                 anim.SetTrigger("attack");
                 
-                // Vai buscar o script do jogador e dá-lhe dano!
                 PlayerMovement scriptPlayer = player.GetComponent<PlayerMovement>();
                 if (scriptPlayer != null)
                 {
-                    scriptPlayer.ReceberDano(danoDoAtaque);
+                    scriptPlayer.ReceberDano(danoDoAtaque, transform);
                 }
 
                 temporizador = Time.time + tempoEntreAtaques; 
@@ -64,7 +62,6 @@ public class InteligenciaEsqueleto : MonoBehaviour
         anim.SetFloat("Speed", agent.velocity.magnitude);
     }
 
-    // O Cavaleiro vai chamar esta função para magoar o esqueleto
     public void ReceberDano(float dano)
     {
         if (estaMorto) return;
@@ -75,10 +72,10 @@ public class InteligenciaEsqueleto : MonoBehaviour
         if (vidaAtual <= 0)
         {
             estaMorto = true;
-            anim.SetTrigger("die"); // Se tiveres animação de morrer, certifica-te que o parâmetro se chama "die"
+            anim.SetTrigger("die"); 
             agent.isStopped = true;
             agent.enabled = false;
-            Destroy(gameObject, 3f); // O corpo desaparece ao fim de 3 segundos
+            Destroy(gameObject, 3f); 
         }
     }
 }
