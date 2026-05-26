@@ -18,6 +18,10 @@ public class InteligenciaEsqueleto : MonoBehaviour
     public float danoDoAtaque = 15f; 
     private bool estaMorto = false;
 
+    [Header("Drop System")]
+    public GameObject[] comidasParaDropar; // Arrasta os prefabs de comida para aqui no Inspector
+    [Range(0f, 1f)] public float chanceDeDrop = 0.5f; // 50% de chance de deixar cair algo
+
     void Start()
     {
         if (barraVidaInimigo != null)
@@ -75,7 +79,18 @@ public class InteligenciaEsqueleto : MonoBehaviour
             anim.SetTrigger("die"); 
             agent.isStopped = true;
             agent.enabled = false;
-            Destroy(gameObject, 3f); 
+            Destroy(gameObject, 3f);
+            if (Random.value <= chanceDeDrop && comidasParaDropar.Length > 0)
+            {
+                // Escolhe uma comida aleatória da lista
+                int indexAleatorio = Random.Range(0, comidasParaDropar.Length);
+                GameObject comidaEscolhida = comidasParaDropar[indexAleatorio];
+            
+                // Cria a comida ligeiramente acima do chão para não ficar presa na malha 3D
+                Vector3 posicaoDrop = transform.position + new Vector3(0, 1f, 0);
+                
+                Instantiate(comidaEscolhida, posicaoDrop, Quaternion.identity);
+            } 
         }
     }
 }
