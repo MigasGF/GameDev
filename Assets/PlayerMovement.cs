@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Animator anim;
     private CharacterController controller;
-    private Transform mainCamera; // <- Adicionada a referência à câmara
+    private Transform mainCamera;
 
     // --- SISTEMA DE VIDA E ATAQUE ---
     public Slider barraVidaPlayer;
@@ -19,14 +19,21 @@ public class PlayerMovement : MonoBehaviour
     private bool estaMorto = false;
 
     float velocidadeVertical;
+    public float forcaSaltoAgua = 6f;
     float forcaSalto = 5f;
-    float gravidade = -15f; // Aumentei um pouco para o salto ser mais rápido e realista
+    float gravidade = -15f; 
+
+    // Limite de queda do jogador (Nível da Água)
+    private float limiteInferiorY = -0.1f;
+
+    // --- REFERÊNCIA PARA A BÓIA ---
+    public GameObject boia;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        mainCamera = Camera.main.transform; // <- O Unity encontra a câmara principal automaticamente
+        mainCamera = Camera.main.transform; 
         anim.applyRootMotion = false;
 
         if (barraVidaPlayer != null)
@@ -34,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
             barraVidaPlayer.maxValue = 100f;
             barraVidaPlayer.value = vidaAtual;
         }
+
+        // Garante que a bóia começa invisível quando o jogo arranca
+        if (boia != null) boia.SetActive(false);
     }
 
     void Update()
@@ -47,41 +57,82 @@ public class PlayerMovement : MonoBehaviour
             AtacarInimigos(); 
         }
 
-        // --- 2. SISTEMA DE GRAVIDADE E SALTO ---
-        // Só aplicamos o salto se o cavaleiro estiver a tocar no chão
-        if (controller.isGrounded)
+        // --- 2. SISTEMA DE GRAVIDADE, SALTO E ÁGUA ---
+        bool noFundoDoPoco = transform.position.y <= limiteInferiorY;
+
+        // Ativa a bóia e a animação APENAS se estiver na água (limite -0.3)
+        if (noFundoDoPoco)
         {
-            velocidadeVertical = -2f; // Uma força mínima para o manter colado ao chão nas descidas
+            if (boia != null) boia.SetActive(true);
+            anim.SetBool("inWater", true);
+        }
+        else
+        {
+            if (boia != null) boia.SetActive(false);
+            anim.SetBool("inWater", false);
+        }
+
+        // Se chegou à água, prendemos a posição
+        if (noFundoDoPoco)
+        {
+            controller.enabled = false;
+            transform.position = new Vector3(transform.position.x, limiteInferiorY, transform.position.z);
+            controller.enabled = true;
+
+            if (velocidadeVertical < 0)
+            {
+                velocidadeVertical = 0f;
+            }
+        }
+
+        // Aplicamos o salto se estiver a tocar no chão normal OU na água
+        if (controller.isGrounded || noFundoDoPoco)
+        {
+            if (controller.isGrounded && !noFundoDoPoco)
+            {
+                velocidadeVertical = -2f; 
+            }
             
             if (Input.GetKeyDown(KeyCode.Space)) 
             {
-                velocidadeVertical = forcaSalto;
+                if (noFundoDoPoco)
+                {
+                    velocidadeVertical = forcaSaltoAgua;
+                }
+                else
+                {
+                    velocidadeVertical = forcaSalto;
+                }
+
                 anim.SetTrigger("jump");
+                
+                // Desativa a bóia e a animação imediatamente ao saltar para a transição ser fluída
+                if (boia != null) boia.SetActive(false);
+                anim.SetBool("inWater", false);
             }
         }
-        // A gravidade puxa-o sempre para baixo ao longo do tempo
-        velocidadeVertical += gravidade * Time.deltaTime;
+
+        if (!noFundoDoPoco || velocidadeVertical > 0)
+        {
+            velocidadeVertical += gravidade * Time.deltaTime;
+        }
 
         // --- 3. SISTEMA DE MOVIMENTO (Baseado na Câmara) ---
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(h, 0f, v).normalized;
 
-        // Vetor final que vai juntar a direção e o salto
         Vector3 movimentoFinal = Vector3.zero;
 
         if (direction.magnitude >= 0.1f)
         {
             anim.SetBool("isRunning", true);
 
-            // A MAGIA ACONTECE AQUI: Somamos a rotação da câmara ao movimento do jogador
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, 0.25f);
             
-            // Roda o boneco para a direção certa
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            // Transforma esse ângulo num vetor de movimento para a frente
             Vector3 direcaoDoMovimento = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             movimentoFinal = direcaoDoMovimento * speed;
         }
@@ -91,8 +142,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // --- 4. APLICAR TODO O MOVIMENTO DE UMA VEZ ---
-        movimentoFinal.y = velocidadeVertical; // Juntamos a força do salto/gravidade ao vetor
-        controller.Move(movimentoFinal * Time.deltaTime); // Mandamos o CharacterController andar
+        movimentoFinal.y = velocidadeVertical; 
+        controller.Move(movimentoFinal * Time.deltaTime); 
     }
 
     void AtacarInimigos()
@@ -114,12 +165,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (estaMorto) return;
 
+        // A Matemática do Escudo acontece aqui: verifica o mesmo botão direito do teu outro script
         if (Input.GetMouseButton(1))
         {
             Vector3 direcaoDoAtaque = (atacante.position - transform.position).normalized;
             direcaoDoAtaque.y = 0; 
             float angulo = Vector3.Angle(transform.forward, direcaoDoAtaque);
 
+            // Se o inimigo atacar num ângulo de 70 graus pela frente, o dano é anulado
             if (angulo <= 70f)
             {
                 Debug.Log("Bloqueaste o ataque com o escudo de frente!");
