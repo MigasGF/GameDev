@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI; 
+// 1. AGREGADO: La librería esencial para manejar los niveles
+using UnityEngine.SceneManagement; 
+
 
 public class InteligenciaEsqueleto : MonoBehaviour
 {
@@ -17,6 +20,8 @@ public class InteligenciaEsqueleto : MonoBehaviour
     public float vidaAtual = 100f;
     public float danoDoAtaque = 15f; 
     private bool estaMorto = false;
+
+    public bool tieneLlaveDelNivel = false;
 
     void Start()
     {
@@ -69,13 +74,33 @@ public class InteligenciaEsqueleto : MonoBehaviour
         vidaAtual -= dano;
         if (barraVidaInimigo != null) barraVidaInimigo.value = vidaAtual;
 
+        // 2. MODIFICADO: El bloque donde la vida llega a cero
         if (vidaAtual <= 0)
         {
             estaMorto = true;
             anim.SetTrigger("die"); 
             agent.isStopped = true;
             agent.enabled = false;
+            
+            // AGREGADO: En lugar de cargar la escena de golpe, usamos Invoke
+            // Esto llamará a la función "CambiarEscena" después de 2 segundos.
+            Invoke("CambiarEscena", 2f);
+
             Destroy(gameObject, 3f); 
+
+            // Lógica de la llave:
+            if (tieneLlaveDelNivel == true)
+            {
+                Invoke("CambiarEscena", 2f);
+            }
+
+            Destroy(gameObject, 3f);
         }
+    }
+
+    // 3. AGREGADO: La función que ejecuta el cambio de nivel
+    private void CambiarEscena()
+    {
+        SceneManager.LoadScene("SampleScene 2");
     }
 }
