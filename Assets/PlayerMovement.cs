@@ -159,6 +159,24 @@ public class PlayerMovement : MonoBehaviour
                 esqueleto.ReceberDano(danoDoAtaque);
             }
         }
+        // --- ATAQUE AO BOSS ---
+        BossController boss = FindObjectOfType<BossController>();
+        if (boss != null)
+        {
+            // Criamos posições virtuais no chão (Y = 0) para o jogo não se deixar enganar pela altura do Boss!
+            Vector3 posicaoPlayerNoChao = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 posicaoBossNoChao = new Vector3(boss.transform.position.x, 0, boss.transform.position.z);
+            
+            // Agora a distância é medida apenas a direito, sem contar com a altura
+            float distanciaBoss = Vector3.Distance(posicaoPlayerNoChao, posicaoBossNoChao);
+            
+            // Se o Collider dele continuar largo, aumenta este + 5.0f para + 7.0f ou mais!
+            if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
+            {
+                boss.ReceberDano(danoDoAtaque);
+                Debug.Log("Acertaste no Boss! Distância: " + distanciaBoss);
+            }
+        }
     }
 
     public void ReceberDano(float dano, Transform atacante)
