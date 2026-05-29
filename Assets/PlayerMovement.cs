@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject boia;
 
     public Collider colliderEspada;
+    public SwordDamage scriptEspada;
     public bool estaAAtacar = false;
 
     void Start()
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (estaMorto) return;
 
         // --- 1. SISTEMA DE ATAQUE ---
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) && !estaAAtacar) 
         {
             StartCoroutine(RotinaDeAtaque()); 
         }
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
             velocidadeVertical += gravidade * Time.deltaTime;
         }
 
-        // --- 3. SISTEMA DE MOVIMENTO (Baseado na Câmara) ---
+// --- 3. SISTEMA DE MOVIMENTO (Baseado na Câmara) ---
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(h, 0f, v).normalized;
@@ -132,12 +133,26 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isRunning", true);
 
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, 0.25f);
-            
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            // 1. Calcula a direção real para onde ele se vai mover (relativa à câmara)
+            float anguloMovimento = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
+            Vector3 direcaoDoMovimento = Quaternion.Euler(0f, anguloMovimento, 0f) * Vector3.forward;
 
-            Vector3 direcaoDoMovimento = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            // 2. Decide para onde o boneco deve OLHAR
+            if (v < 0) 
+            {
+                // Se carregou no 'S' (v é negativo), obrigamos o boneco a olhar para a frente da câmara
+                float anguloOlhar = mainCamera.eulerAngles.y; 
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloOlhar, ref rotationVelocity, 0.25f);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            }
+            else
+            {
+                // Se carregou no W, A ou D, roda o corpo normalmente para a direção do movimento
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloMovimento, ref rotationVelocity, 0.25f);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            }
+
+            // 3. Aplica a velocidade à direção calculada
             movimentoFinal = direcaoDoMovimento * speed;
         }
         else
@@ -188,16 +203,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     System.Collections.IEnumerator RotinaDeAtaque()
-    {
+{
     estaAAtacar = true;
-    if (colliderEspada != null) colliderEspada.enabled = true; // A lâmina fica "perigosa"
+    
+    if (scriptEspada != null) scriptEspada.PrepararNovoAtaque(); // Limpa a lista!
+    if (colliderEspada != null) colliderEspada.enabled = true; 
     
     anim.SetTrigger("bash");
     
-    // O tempo do teu swing da espada (ajusta se for muito rápido ou lento)
-    yield return new WaitForSeconds(0.6f); 
+    yield return new WaitForSeconds(1f); 
     
-    if (colliderEspada != null) colliderEspada.enabled = false; // A lâmina volta a ficar inofensiva
+    if (colliderEspada != null) colliderEspada.enabled = false; 
     estaAAtacar = false;
-    }
+}
 }
