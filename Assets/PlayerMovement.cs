@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     // --- REFERÊNCIA PARA A BÓIA ---
     public GameObject boia;
 
+    public Collider colliderEspada;
+    public bool estaAAtacar = false;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -44,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Garante que a bóia começa invisível quando o jogo arranca
         if (boia != null) boia.SetActive(false);
+
+        if (colliderEspada != null) colliderEspada.enabled = false;
     }
 
     void Update()
@@ -53,8 +58,7 @@ public class PlayerMovement : MonoBehaviour
         // --- 1. SISTEMA DE ATAQUE ---
         if (Input.GetMouseButtonDown(0)) 
         {
-            anim.SetTrigger("bash");
-            AtacarInimigos(); 
+            StartCoroutine(RotinaDeAtaque()); 
         }
 
         // --- 2. SISTEMA DE GRAVIDADE, SALTO E ÁGUA ---
@@ -146,38 +150,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(movimentoFinal * Time.deltaTime); 
     }
 
-    void AtacarInimigos()
-    {
-        InteligenciaEsqueleto[] esqueletos = FindObjectsByType<InteligenciaEsqueleto>(FindObjectsSortMode.None);
-        
-        foreach (InteligenciaEsqueleto esqueleto in esqueletos)
-        {
-            float distancia = Vector3.Distance(transform.position, esqueleto.transform.position);
-            
-            if (distancia <= alcanceDoAtaque)
-            {
-                esqueleto.ReceberDano(danoDoAtaque);
-            }
-        }
-        // --- ATAQUE AO BOSS ---
-        BossController boss = FindObjectOfType<BossController>();
-        if (boss != null)
-        {
-            // Criamos posições virtuais no chão (Y = 0) para o jogo não se deixar enganar pela altura do Boss!
-            Vector3 posicaoPlayerNoChao = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 posicaoBossNoChao = new Vector3(boss.transform.position.x, 0, boss.transform.position.z);
-            
-            // Agora a distância é medida apenas a direito, sem contar com a altura
-            float distanciaBoss = Vector3.Distance(posicaoPlayerNoChao, posicaoBossNoChao);
-            
-            // Se o Collider dele continuar largo, aumenta este + 5.0f para + 7.0f ou mais!
-            if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
-            {
-                boss.ReceberDano(danoDoAtaque);
-                Debug.Log("Acertaste no Boss! Distância: " + distanciaBoss);
-            }
-        }
-    }
+
 
     public void ReceberDano(float dano, Transform atacante)
     {
@@ -212,5 +185,19 @@ public class PlayerMovement : MonoBehaviour
             controller.enabled = false;
             Debug.Log("Morreste!");
         }
+    }
+
+    System.Collections.IEnumerator RotinaDeAtaque()
+    {
+    estaAAtacar = true;
+    if (colliderEspada != null) colliderEspada.enabled = true; // A lâmina fica "perigosa"
+    
+    anim.SetTrigger("bash");
+    
+    // O tempo do teu swing da espada (ajusta se for muito rápido ou lento)
+    yield return new WaitForSeconds(0.6f); 
+    
+    if (colliderEspada != null) colliderEspada.enabled = false; // A lâmina volta a ficar inofensiva
+    estaAAtacar = false;
     }
 }
