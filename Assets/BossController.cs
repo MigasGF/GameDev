@@ -49,6 +49,9 @@ public class BossController : MonoBehaviour
     [Header("Recarga")]
     public float tempoProximaMagia = 0f; // Controla o tempo de recarga do laser
 
+    [Header("Efeitos Visuais")]
+    public GameObject charging;
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -152,17 +155,34 @@ void Update()
         estaAtacar = false;
     }
 
-    IEnumerator RotinaMagia()
+IEnumerator RotinaMagia()
     {
         estaAtacar = true;
         PararMovimento();
         
         anim.SetTrigger("magic"); 
         
-        // Espera que as mãos cheguem à posição de disparo
+        // --- 1. COMEÇA A ACUMULAR ENERGIA ---
+        GameObject efeitoEnergia = null; // Guardamos a referência aqui
+        if (charging != null)
+        {
+            // Cria a energia exatamente na posição e rotação da mão
+            efeitoEnergia = Instantiate(charging, magicPoint.position, magicPoint.rotation);
+            // Ao fazer SetParent, o VFX cola-se à mão e acompanha o movimento da animação!
+            efeitoEnergia.transform.SetParent(magicPoint);
+        }
+
+        // Espera que as mãos cheguem à posição de disparo (enquanto o VFX brilha)
         yield return new WaitForSeconds(espera); 
         
-        if (magicBeam != null) magicBeam.enabled = true;
+        // --- 2. ACABOU O TEMPO DE CARREGAR ---
+        if (efeitoEnergia != null)
+        {
+            Destroy(efeitoEnergia); // Apagamos a bola de energia...
+        }
+
+        // --- 3. DISPARA O LASER MORTAL ---
+        if (magicBeam != null) magicBeam.enabled = true; // ...e ligamos o Laser!
 
         float tempoAtivo = 0f;
          // Tempo que o laser fica ligado
@@ -171,7 +191,7 @@ void Update()
         {
             tempoAtivo += Time.deltaTime;
 
-            // --- 1. A ROTAÇÃO COMPENSADA ---
+            // A ROTAÇÃO COMPENSADA
             Vector3 direcaoOlhar = (player.position - transform.position).normalized;
             direcaoOlhar.y = 0; 
             
@@ -181,7 +201,7 @@ void Update()
             // Aumentei a velocidade de rotação para 5f para ele mirar mais rápido
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, Time.deltaTime * 5f); 
 
-            // --- 2. O LASER DIRETO ---
+            // O LASER DIRETO
             // Aponta diretamente para o peito do jogador (+ Vector3.up * 1f)
             Vector3 direcaoFeixe = (player.position + Vector3.up * 1f) - magicPoint.position;
 

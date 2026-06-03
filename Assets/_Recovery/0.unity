@@ -8203,11 +8203,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1956824541}
   m_SourcePrefab: {fileID: 100100000, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
---- !u!137 &137759140 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6422338445250207116, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  m_PrefabInstance: {fileID: 909894683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139110654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16876,7 +16871,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 720
   barraVidaPlayer: {fileID: 924981648}
-  vidaAtual: 1000
+  vidaAtual: 100
   danoDoAtaque: 35
   alcanceDoAtaque: 2.5
   forcaSaltoAgua: 10
@@ -16975,7 +16970,6 @@ MonoBehaviour:
   - {fileID: 1909626197}
   - {fileID: 932868402}
   auraDoCristal: {fileID: 11728409}
-  cure: {fileID: 8593464584776411535, guid: b21d155ec7ea5a349a0e36106f913148, type: 3}
 --- !u!1001 &522327292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17814,11 +17808,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.089, y: 3.137, z: 1.118}
   m_TimeToStationary: 0.5
---- !u!137 &542995699 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6422338445250207116, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  m_PrefabInstance: {fileID: 783296754}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &546280365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
@@ -25283,11 +25272,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1476891825}
   m_SourcePrefab: {fileID: 100100000, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
---- !u!137 &895982812 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6422338445250207116, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  m_PrefabInstance: {fileID: 1855824564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &901040791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5910310261315635126, guid: b961d32e7cab2584abe43fe67086df33, type: 3}
@@ -28568,11 +28552,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 901040796}
   m_SourcePrefab: {fileID: 100100000, guid: b961d32e7cab2584abe43fe67086df33, type: 3}
---- !u!137 &1015148646 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6422338445250207116, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  m_PrefabInstance: {fileID: 153373154}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1015366687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28734,8 +28713,6 @@ MonoBehaviour:
   - {fileID: 785783160}
   - {fileID: 1064456116}
   chanceDeDrop: 1
-  modelo3D: {fileID: 137759140}
-  corPiscar: {r: 1, g: 0, b: 0, a: 1}
 --- !u!195 &1015761499
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -32422,8 +32399,6 @@ MonoBehaviour:
   - {fileID: 785783160}
   - {fileID: 1064456116}
   chanceDeDrop: 1
-  modelo3D: {fileID: 895982812}
-  corPiscar: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &1181452247 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2829917917779058644, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
@@ -38843,8 +38818,6 @@ MonoBehaviour:
   - {fileID: 785783160}
   - {fileID: 1064456116}
   chanceDeDrop: 1
-  modelo3D: {fileID: 542995699}
-  corPiscar: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &1437995713 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2829917917779058644, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
@@ -39452,7 +39425,6 @@ MonoBehaviour:
   cooldown: 10
   duracaoFeixe: 1
   tempoProximaMagia: 3
-  charging: {fileID: 6441873369525384307, guid: 0f3d407feb92ebb49b98d0157de5008a, type: 3}
 --- !u!195 &1452232444
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -42669,8 +42641,6 @@ MonoBehaviour:
   - {fileID: 785783160}
   - {fileID: 1064456116}
   chanceDeDrop: 1
-  modelo3D: {fileID: 1015148646}
-  corPiscar: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &1578558273 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2829917917779058644, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
@@ -43600,7 +43570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordDamage
   scriptPlayer: {fileID: 521220186}
-  particles: {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
 --- !u!1001 &1625881463
 PrefabInstance:
   m_ObjectHideFlags: 0

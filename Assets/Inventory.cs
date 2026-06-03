@@ -23,8 +23,9 @@ public class Inventory : MonoBehaviour
 
     private PlayerMovement playerScript;
 
-    [Header("Efeitos Especiais")]
+    [Header("Efeito Especial")]
     public GameObject auraDoCristal; // Vamos ligar a aura aqui!
+    public GameObject cure;
 
     void Start()
     {
@@ -47,13 +48,13 @@ public class Inventory : MonoBehaviour
             ConsumirItemSelecionado();
         }
     }
-    
+
 
     // Apanhar os itens do chão
     void OnTriggerEnter(Collider other)
     {
         Food comidaNoChao = other.GetComponent<Food>();
-        
+
         if (comidaNoChao != null)
         {
             if (AdicionarAoInventario(comidaNoChao))
@@ -72,7 +73,7 @@ public class Inventory : MonoBehaviour
             {
                 slots[i].quantidade += item.quantidade;
                 AtualizarUI();
-                return true; 
+                return true;
             }
         }
 
@@ -105,10 +106,10 @@ public class Inventory : MonoBehaviour
             if (slot.nomeItem == "Cristal")
             {
                 Debug.Log("Poder do Cristal Ativado!");
-                
+
                 // Liga o efeito da Aura
                 if (auraDoCristal != null) auraDoCristal.SetActive(true);
-                
+
                 // Aqui no futuro podes fazer a espada dar mais dano:
                 // playerScript.danoDoAtaque = 50f; 
 
@@ -119,11 +120,21 @@ public class Inventory : MonoBehaviour
             {
                 Debug.Log("Comida consumida! Vida curada.");
                 playerScript.vidaAtual += slot.vidaRestaurada;
-                
+
                 if (playerScript.vidaAtual > 100f) playerScript.vidaAtual = 100f;
-                
-                if (playerScript.barraVidaPlayer != null) 
+
+                if (playerScript.barraVidaPlayer != null)
                     playerScript.barraVidaPlayer.value = playerScript.vidaAtual;
+
+                // --- SISTEMA DA AURA DE CURA ---
+                if (cure != null)
+                {
+                    // Cria a aura nos pés do jogador
+                    GameObject aura = Instantiate(cure, transform.position, Quaternion.identity);
+
+                    // Faz a aura ser "filha" do jogador, assim se ele correr ela vai atrás dele!
+                    aura.transform.SetParent(this.transform);
+                }
 
                 GastarItem(slot);
             }

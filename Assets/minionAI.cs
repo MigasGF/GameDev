@@ -22,12 +22,27 @@ public class InteligenciaEsqueleto : MonoBehaviour
     public GameObject[] comidasParaDropar; // Arrasta os prefabs de comida para aqui no Inspector
     [Range(0f, 1f)] public float chanceDeDrop = 0.5f; // 50% de chance de deixar cair algo
 
+    [Header("Efeitos Visuais de Dano")]
+    public Renderer modelo3D; // Onde vais arrastar a malha 3D do esqueleto
+    public Color corPiscar = Color.red; // A cor que ele vai ficar (podes mudar no Unity)
+    private Color[] coresOriginais;
+
     void Start()
     {
         if (barraVidaInimigo != null)
         {
             barraVidaInimigo.maxValue = 100f;
             barraVidaInimigo.value = vidaAtual;
+        }
+
+        if (modelo3D != null)
+        {
+            // Guarda as cores originais de todos os materiais do monstro
+            coresOriginais = new Color[modelo3D.materials.Length];
+            for (int i = 0; i < modelo3D.materials.Length; i++)
+            {
+                coresOriginais[i] = modelo3D.materials[i].color;
+            }
         }
     }
 
@@ -72,6 +87,7 @@ public class InteligenciaEsqueleto : MonoBehaviour
 
         vidaAtual -= dano;
         if (barraVidaInimigo != null) barraVidaInimigo.value = vidaAtual;
+        if (modelo3D != null) StartCoroutine(EfeitoPiscar());
 
         if (vidaAtual <= 0)
         {
@@ -91,6 +107,24 @@ public class InteligenciaEsqueleto : MonoBehaviour
                 
                 Instantiate(comidaEscolhida, posicaoDrop, Quaternion.identity);
             } 
+        }
+    }
+
+    System.Collections.IEnumerator EfeitoPiscar()
+    {
+        // 1. Pinta tudo com a cor de dano (Vermelho)
+        for (int i = 0; i < modelo3D.materials.Length; i++)
+        {
+            modelo3D.materials[i].color = corPiscar;
+        }
+
+        // 2. Espera uma fração minúscula de segundo (o tempo do piscar)
+        yield return new WaitForSeconds(0.15f); 
+
+        // 3. Volta a pintar com as cores originais
+        for (int i = 0; i < modelo3D.materials.Length; i++)
+        {
+            modelo3D.materials[i].color = coresOriginais[i];
         }
     }
 }
