@@ -33,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
     public SwordDamage scriptEspada;
     public bool estaAAtacar = false;
 
+    [Header("Feedback de Dano")]
+    public Image telaDeDano; // A imagem que vai piscar
+    public Color corDoDano = new Color(1f, 0f, 0f, 0.4f); // Vermelho com alguma transparência
+    public float velocidadeRecuperacao = 4f; // Quão rápido o vermelho desaparece
+    private bool levouPancada = false;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -163,6 +169,21 @@ public class PlayerMovement : MonoBehaviour
         // --- 4. APLICAR TODO O MOVIMENTO DE UMA VEZ ---
         movimentoFinal.y = velocidadeVertical; 
         controller.Move(movimentoFinal * Time.deltaTime); 
+
+        if (telaDeDano != null)
+        {
+            if (levouPancada)
+            {
+                // Fica vermelho instantaneamente!
+                telaDeDano.color = corDoDano;
+                levouPancada = false; 
+            }
+            else
+            {
+                // Vai desvanecendo suavemente de volta para transparente (Color.clear)
+                telaDeDano.color = Color.Lerp(telaDeDano.color, Color.clear, velocidadeRecuperacao * Time.deltaTime);
+            }
+        }
     }
 
 
@@ -189,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Ai! Levaste dano pelas costas ou lado!");
             }
         }
-
+        levouPancada = true;
         vidaAtual -= dano;
         if (barraVidaPlayer != null) barraVidaPlayer.value = vidaAtual;
 
