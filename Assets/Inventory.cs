@@ -23,6 +23,9 @@ public class Inventory : MonoBehaviour
 
     private PlayerMovement playerScript;
 
+    [Header("Efeitos Especiais")]
+    public GameObject auraDoCristal; // Vamos ligar a aura aqui!
+
     void Start()
     {
         playerScript = GetComponent<PlayerMovement>();
@@ -91,38 +94,56 @@ public class Inventory : MonoBehaviour
         return false; // Não conseguiu apanhar
     }
 
+
     void ConsumirItemSelecionado()
     {
         SlotDeInventario slot = slots[slotSelecionado];
 
-        // Se houver comida neste slot e o jogador não tiver a vida no máximo
-        if (slot.quantidade > 0 && playerScript.vidaAtual < 100f)
+        if (slot.quantidade > 0)
         {
-            // Aumenta a vida (garantindo que não passa dos 100)
-            playerScript.vidaAtual += slot.vidaRestaurada;
-            if (playerScript.vidaAtual > 100f) playerScript.vidaAtual = 100f;
-
-            // Atualiza a barra de vida do PlayerMovement
-            if (playerScript.barraVidaPlayer != null) 
+            // --- CASO 1: É o Cristal ---
+            if (slot.nomeItem == "Cristal")
             {
-                playerScript.barraVidaPlayer.value = playerScript.vidaAtual;
+                Debug.Log("Poder do Cristal Ativado!");
+                
+                // Liga o efeito da Aura
+                if (auraDoCristal != null) auraDoCristal.SetActive(true);
+                
+                // Aqui no futuro podes fazer a espada dar mais dano:
+                // playerScript.danoDoAtaque = 50f; 
+
+                GastarItem(slot);
             }
-
-            // Gasta 1 item
-            slot.quantidade--;
-
-            // Se a quantidade chegar a zero, limpa o slot
-            if (slot.quantidade <= 0)
+            // --- CASO 2: É Comida (e a vida não está no máximo) ---
+            else if (playerScript.vidaAtual < 100f)
             {
-                slot.nomeItem = "";
-                slot.icone = null;
-                slot.quantidade = 0;
-                slot.vidaRestaurada = 0f;
-            }
+                Debug.Log("Comida consumida! Vida curada.");
+                playerScript.vidaAtual += slot.vidaRestaurada;
+                
+                if (playerScript.vidaAtual > 100f) playerScript.vidaAtual = 100f;
+                
+                if (playerScript.barraVidaPlayer != null) 
+                    playerScript.barraVidaPlayer.value = playerScript.vidaAtual;
 
-            AtualizarUI();
-            Debug.Log("Comida consumida! Vida curada.");
+                GastarItem(slot);
+            }
         }
+    }
+
+    // Função auxiliar para não repetirmos código
+    void GastarItem(SlotDeInventario slot)
+    {
+        slot.quantidade--;
+
+        if (slot.quantidade <= 0)
+        {
+            slot.nomeItem = "";
+            slot.icone = null;
+            slot.quantidade = 0;
+            slot.vidaRestaurada = 0f;
+        }
+
+        AtualizarUI();
     }
 
     void AtualizarUI()

@@ -1,26 +1,26 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class IntelligenceBoss : MonoBehaviour
 {
+    [Header("Referências")]
     public NavMeshAgent agent;
     public Transform player;
+    public PlayerMovement scriptPlayer; 
     public Animator anim;
 
     [Header("Distâncias")]
+    public float distanciaDespertar = 15f; // Distância para ele acordar e gritar!
     public float distanciaParaMagia = 10f; 
-    public float distanciaCorpoACorpo = 3f; 
+    public float distanciaCorpoACorpo = 4f; 
 
-    [Header("Ataques e Tempos")]
-    // TEMPOS SEPARADOS:
-    public float tempoEntreMagias = 6f; // Demora muito a carregar fogo
-    private float temporizadorMagia;
-    
-    public float tempoEntreSocos = 1.5f; // Bate rápido se estiveres perto
-    private float temporizadorSoco;
-    
+    [Header("Ataques")]
     public float danoCorpoACorpo = 25f;
+    public float cooldownSoco = 1.5f;
+    public float cooldownMagia = 6f;
+    private float tempoProximaMagia = 0f;
 
     [Header("Magia (Bola de Fogo)")]
     public GameObject bolaDeFogoPrefab;
@@ -28,17 +28,24 @@ public class IntelligenceBoss : MonoBehaviour
 
     [Header("Vida")]
     public Slider barraVidaBoss;
-    public float vidaAtual = 300f;
+    public float vidaTotal = 300f;
+    private float vidaAtual;
     private bool estaMorto = false;
+    
+    // VARIÁVEIS CINEMÁTICAS
+    private bool estaAtacar = false; 
+    private bool bossAtivo = false; // Começa a dormir (parado)
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        vidaAtual = vidaTotal;
         
         if (barraVidaBoss != null)
         {
-            barraVidaBoss.maxValue = vidaAtual;
+            barraVidaBoss.maxValue = vidaTotal;
             barraVidaBoss.value = vidaAtual;
+            barraVidaBoss.gameObject.SetActive(false); 
         }
     }
 
@@ -48,44 +55,36 @@ public class IntelligenceBoss : MonoBehaviour
 
         float distancia = Vector3.Distance(transform.position, player.position);
 
-        // =========================================================================
-        // 1. CORPO A CORPO (Usa o temporizadorSoco)
-        // =========================================================================
+        // ==========================================================
+        // 1. O DESPERTAR DO BOSS (O INÍCIO ÉPICO)
+        // ==========================================================
+        if (!bossAtivo)
+        {
+            if (distancia <= distanciaDespertar)
+            {
+                StartCoroutine(RotinaDespertar());
+            }
+            return; // Impede que o resto do código corra enquanto ele dorme/grita
+        }
+
+        // ==========================================================
+
+        if (estaAtacar) return;
+
+        OlharParaPlayer();
+
+        // 2. CORPO A CORPO
         if (distancia <= distanciaCorpoACorpo)
         {
-            agent.isStopped = true;
-            if (anim != null) anim.SetBool("isRunning", false);
-
-            Vector3 direcaoOlhar = new Vector3(player.position.x, transform.position.y, player.position.z);
-            transform.LookAt(direcaoOlhar);
-
-            // Pergunta ao relógio dos socos se já pode bater
-            if (Time.time >= temporizadorSoco)
-            {
-                if (anim != null) anim.SetTrigger("attackMelee"); 
-                AtaqueFisico();
-                temporizadorSoco = Time.time + tempoEntreSocos; // Reinicia SÓ o relógio do soco
-            }
+            StartCoroutine(RotinaSoco());
         }
-        // =========================================================================
-        // 2. MAGIA (Usa o temporizadorMagia)
-        // =========================================================================
-        else if (distancia <= distanciaParaMagia && Time.time >= temporizadorMagia)
+        // 3. MAGIA (BOLA DE FOGO)
+        else if (distancia <= distanciaParaMagia && Time.time >= tempoProximaMagia)
         {
-            agent.isStopped = true; 
-            if (anim != null) anim.SetBool("isRunning", false);
-
-            Vector3 direcaoOlhar = new Vector3(player.position.x, transform.position.y, player.position.z);
-            transform.LookAt(direcaoOlhar);
-
-            if (anim != null) anim.SetTrigger("attackRanged"); 
-            Invoke("AtirarMagia", 0.5f); 
-
-            temporizadorMagia = Time.time + tempoEntreMagias; // Reinicia SÓ o relógio da magia
+            tempoProximaMagia = Time.time + cooldownMagia;
+            StartCoroutine(RotinaMagia());
         }
-        // =========================================================================
-        // 3. CORRER (Se a magia estiver em cooldown e não estiveres perto para soco)
-        // =========================================================================
+        // 4. CORRER ATRÁS DO JOGADOR
         else
         {
             agent.isStopped = false;
@@ -94,31 +93,68 @@ public class IntelligenceBoss : MonoBehaviour
         }
     }
 
-    void AtirarMagia()
+    private void OlharParaPlayer()
     {
+        Vector3 direcao = (player.position - transform.position).normalized;
+        direcao.y = 0;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direcao), Time.deltaTime * 5f);
+    }
+
+    IEnumerator RotinaDespertar()
+    {
+        bossAtivo = true; // Já foi acordado!
+        estaAtacar = true; // Tranca o cérebro para não se mexer enquanto grita
+
+        agent.isStopped = true;
+        if (anim != null) anim.SetBool("isRunning", false);
+        
+        // Liga a barra de vida e ativa a animação de medo!
+        if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(true);
+        if (anim != null) anim.SetTrigger("wakeUp"); 
+
+        // IMPORTANTE: Espera que a animação inicial acabe (Ajusta este número aos segundos que a animação dura!)
+        yield return new WaitForSeconds(3f); 
+        
+        estaAtacar = false; // Destranca o cérebro, agora vem a porrada!
+    }
+
+    IEnumerator RotinaSoco()
+    {
+        estaAtacar = true; 
+        agent.isStopped = true;
+        if (anim != null) anim.SetBool("isRunning", false);
+        if (anim != null) anim.SetTrigger("attackMelee"); 
+
+        yield return new WaitForSeconds(1f);
+
+        if (Vector3.Distance(transform.position, player.position) <= distanciaCorpoACorpo + 1f)
+        {
+            if (scriptPlayer != null)
+            {
+                scriptPlayer.ReceberDano(danoCorpoACorpo, transform);
+            }
+        }
+
+        yield return new WaitForSeconds(cooldownSoco);
+        estaAtacar = false; 
+    }
+
+    IEnumerator RotinaMagia()
+    {
+        estaAtacar = true; 
+        agent.isStopped = true;
+        if (anim != null) anim.SetBool("isRunning", false);
+        if (anim != null) anim.SetTrigger("attackRanged"); 
+
+        yield return new WaitForSeconds(0.5f);
+
         if (bolaDeFogoPrefab != null && pontoDeDisparo != null)
         {
             Instantiate(bolaDeFogoPrefab, pontoDeDisparo.position, transform.rotation);
         }
-    }
 
-    void AtaqueFisico()
-    {
-       void AtaqueFisico()
-    {
-        PlayerMovement scriptPlayer = player.GetComponent<PlayerMovement>();
-        
-        if (scriptPlayer != null)
-        {
-            // Enviamos o dano do soco e o Transform do próprio Boss (transform) para o escudo funcionar!
-            scriptPlayer.ReceberDano(danoCorpoACorpo, transform);
-            Debug.Log("Boss desferiu um soco! Dano: " + danoCorpoACorpo);
-        }
-        else
-        {
-            Debug.LogWarning("AVISO: O objeto Player não tem o script PlayerMovement colado!");
-        }
-    }
+        yield return new WaitForSeconds(1.5f);
+        estaAtacar = false; 
     }
 
     public void ReceberDano(float dano)
@@ -132,6 +168,8 @@ public class IntelligenceBoss : MonoBehaviour
         {
             estaMorto = true;
             if (anim != null) anim.SetTrigger("die");
+            if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(false);
+
             agent.isStopped = true;
             agent.enabled = false;
             Destroy(gameObject, 5f);

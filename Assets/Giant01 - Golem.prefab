@@ -413,15 +413,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2291753879096571281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024338456, y: 0.99546194, z: 0.04588517, w: 0.07973506}
-  m_LocalPosition: {x: -10.356469, y: 0.6630014, z: 153.67615}
+  m_LocalRotation: {x: -0.029842172, y: 0.00787388, z: -0.027486522, w: -0.9991456}
+  m_LocalPosition: {x: 3.2194712, y: 0.71778274, z: 127.32738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6037499419341676614}
   - {fileID: 8925796294761969996}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -5.465, y: 170.954, z: -2.369}
+  m_LocalEulerAnglesHint: {x: 3.444, y: 359.191, z: 3.127}
 --- !u!95 &8501270598530054018
 Animator:
   serializedVersion: 7
@@ -503,16 +503,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IntelligenceBoss
   agent: {fileID: 0}
   player: {fileID: 0}
+  scriptPlayer: {fileID: 0}
   anim: {fileID: 8501270598530054018}
+  distanciaDespertar: 15
   distanciaParaMagia: 15
   distanciaCorpoACorpo: 2
-  tempoEntreMagias: 7
-  tempoEntreSocos: 3
   danoCorpoACorpo: 25
+  cooldownSoco: 2.5
+  cooldownMagia: 6
   bolaDeFogoPrefab: {fileID: 7965584591482044612, guid: f6ad61d7d1898c14f8958a69f4410013, type: 3}
-  pontoDeDisparo: {fileID: 0}
+  pontoDeDisparo: {fileID: 4701346657061493215}
   barraVidaBoss: {fileID: 0}
-  vidaAtual: 300
+  vidaTotal: 300
 --- !u!1 &2331066360022482070
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331066360022482070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.00000009685755, y: 0.00000017881393, z: -0.00000012665987, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

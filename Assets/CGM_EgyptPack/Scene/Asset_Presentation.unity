@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -97,14 +93,14 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +113,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -128,6 +124,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0c28e2396b9523649b199da26bb751a5, type: 3}
@@ -179,12 +176,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_shield3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c28e2396b9523649b199da26bb751a5, type: 3}
 --- !u!1001 &117377678
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f981fd01e0f085b46931578775195129, type: 3}
@@ -236,12 +237,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_roof_top1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f981fd01e0f085b46931578775195129, type: 3}
 --- !u!1001 &142153345
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 542b96df643a29e49a06ea536cd5a3a8, type: 3}
@@ -293,12 +298,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_spear5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 542b96df643a29e49a06ea536cd5a3a8, type: 3}
 --- !u!1001 &222342365
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 54ef3324f338d844083d9faaa850f950, type: 3}
@@ -350,6 +359,9 @@ PrefabInstance:
       value: CGM_ENV_VEG_flower17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ef3324f338d844083d9faaa850f950, type: 3}
 --- !u!1 &260726644
 GameObject:
@@ -378,9 +390,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260726644}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -401,10 +421,15 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,9 +447,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &260726647
 MeshFilter:
@@ -441,19 +468,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260726644}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.55, y: -0.03, z: -13.75}
   m_LocalScale: {x: 3.453608, y: 1, z: 1.4519261}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &264948571
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 328f0429e76d6294db31e280a6a96a8c, type: 3}
@@ -505,12 +533,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_spear1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328f0429e76d6294db31e280a6a96a8c, type: 3}
 --- !u!1001 &277065696
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4196c3a72aad8dd478d542959e47b987, type: 3}
@@ -562,12 +594,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_cactus21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4196c3a72aad8dd478d542959e47b987, type: 3}
 --- !u!1001 &362009015
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 211e34aab665865418c09a0d4d5ac48c, type: 3}
@@ -619,12 +655,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_palm4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 211e34aab665865418c09a0d4d5ac48c, type: 3}
 --- !u!1001 &391250299
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 457f9a2843020584280add35bc7dac02, type: 3}
@@ -676,12 +716,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_fortress_pillar3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 457f9a2843020584280add35bc7dac02, type: 3}
 --- !u!1001 &394199800
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6eff613ba7ed0834198a1a9b1baa3842, type: 3}
@@ -733,12 +777,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_khopesh4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eff613ba7ed0834198a1a9b1baa3842, type: 3}
 --- !u!1001 &403221359
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f3919d61da6c9594fa43c634b98a76c8, type: 3}
@@ -790,12 +838,16 @@ PrefabInstance:
       value: CGM_ENV_PRP_scaffolding2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3919d61da6c9594fa43c634b98a76c8, type: 3}
 --- !u!1001 &439895262
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fc7b17b4dc786854e846ef7e2d14f96d, type: 3}
@@ -847,12 +899,16 @@ PrefabInstance:
       value: CGM_ENV_PRP_fair_blow5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7b17b4dc786854e846ef7e2d14f96d, type: 3}
 --- !u!1001 &469971284
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d8e0d9f36f7120844a587add769c602b, type: 3}
@@ -904,12 +960,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_fortress4_M
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e0d9f36f7120844a587add769c602b, type: 3}
 --- !u!1001 &508969565
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 25677b54a54851041894536600b3f579, type: 3}
@@ -961,12 +1021,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_golden_decor3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25677b54a54851041894536600b3f579, type: 3}
 --- !u!1001 &611585297
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c807820a41350154d9e3d36f724039e1, type: 3}
@@ -1018,12 +1082,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_cactus13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c807820a41350154d9e3d36f724039e1, type: 3}
 --- !u!1001 &614242212
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7efb3688dae31c64d851512e6f9277d3, type: 3}
@@ -1075,12 +1143,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_ornament19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7efb3688dae31c64d851512e6f9277d3, type: 3}
 --- !u!1001 &715848568
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2b96661a23bdf284285e05c9a918c483, type: 3}
@@ -1132,12 +1204,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_tile_black3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b96661a23bdf284285e05c9a918c483, type: 3}
 --- !u!1001 &756337110
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 230bcf1061b58b04a8d3123f025cbc1a, type: 3}
@@ -1189,12 +1265,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_tile_blue1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 230bcf1061b58b04a8d3123f025cbc1a, type: 3}
 --- !u!1001 &759751984
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 36ba0c1bc0fe6db4b8fe1e5b172c139d, type: 3}
@@ -1246,12 +1326,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_grnd6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36ba0c1bc0fe6db4b8fe1e5b172c139d, type: 3}
 --- !u!1001 &849052996
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 03f1b4a00067eda4485a2f7f955bce82, type: 3}
@@ -1303,12 +1387,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_vine17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03f1b4a00067eda4485a2f7f955bce82, type: 3}
 --- !u!1001 &861732797
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9587069cb468e3f42bdb5a6c69ad88ef, type: 3}
@@ -1360,12 +1448,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_ornament8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9587069cb468e3f42bdb5a6c69ad88ef, type: 3}
 --- !u!1001 &957068923
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c683bd3c4ee3784489238f9de49f283d, type: 3}
@@ -1417,6 +1509,9 @@ PrefabInstance:
       value: CGM_ENV_GRD_broken_pillar3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c683bd3c4ee3784489238f9de49f283d, type: 3}
 --- !u!1 &975512264
 GameObject:
@@ -1443,15 +1538,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975512264}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 13
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -1495,8 +1589,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
+  m_ForceVisible: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &975512266
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,19 +1602,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975512264}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &988787868
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 94dc52c69d4742540b777493d69f2c9b, type: 3}
@@ -1568,12 +1667,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_rock4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94dc52c69d4742540b777493d69f2c9b, type: 3}
 --- !u!1001 &1012846710
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a9f6c2df4daa76f4fb10bc8a4c8aef55, type: 3}
@@ -1625,12 +1728,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_palm1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f6c2df4daa76f4fb10bc8a4c8aef55, type: 3}
 --- !u!1001 &1149435110
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ed801012633d56c47a653d5107f7ed83, type: 3}
@@ -1682,12 +1789,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_spear3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed801012633d56c47a653d5107f7ed83, type: 3}
 --- !u!1001 &1154069323
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cdbff5ce07ac8a94f97bcc3f5ff29fbb, type: 3}
@@ -1739,12 +1850,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_shield1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdbff5ce07ac8a94f97bcc3f5ff29fbb, type: 3}
 --- !u!1001 &1176411202
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a43633387d4160046bc7eb563a47d2d2, type: 3}
@@ -1796,12 +1911,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_stairs2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43633387d4160046bc7eb563a47d2d2, type: 3}
 --- !u!1001 &1205272675
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6fe3e1ea289ccfe428a7cfa5c7262e3d, type: 3}
@@ -1853,12 +1972,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_flower13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe3e1ea289ccfe428a7cfa5c7262e3d, type: 3}
 --- !u!1001 &1277440796
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3fb5c6a8532e5244eb4d9d929ca9fc44, type: 3}
@@ -1910,12 +2033,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_palace1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb5c6a8532e5244eb4d9d929ca9fc44, type: 3}
 --- !u!1001 &1305834087
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fb7400276fa9105438333cfd6652495c, type: 3}
@@ -1967,12 +2094,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_palm11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb7400276fa9105438333cfd6652495c, type: 3}
 --- !u!1001 &1312195423
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 711a8b56b88aec545a9341779b952769, type: 3}
@@ -2024,12 +2155,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_axe7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711a8b56b88aec545a9341779b952769, type: 3}
 --- !u!1001 &1357166484
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: dc34c0f7518a05842961ad861b2e4b9b, type: 3}
@@ -2081,12 +2216,16 @@ PrefabInstance:
       value: CGM_ENV_PRP_scaffolding3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc34c0f7518a05842961ad861b2e4b9b, type: 3}
 --- !u!1001 &1366013777
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 284bcd11a9f236a42b295a24bacec4ab, type: 3}
@@ -2138,12 +2277,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_grass4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284bcd11a9f236a42b295a24bacec4ab, type: 3}
 --- !u!1001 &1375850199
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4e3bde579c6e79e499d89fa46b510d4e, type: 3}
@@ -2195,12 +2338,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_palm2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e3bde579c6e79e499d89fa46b510d4e, type: 3}
 --- !u!1001 &1376433765
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 24dab0e592c6b1f46b268c276c185f59, type: 3}
@@ -2252,12 +2399,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_roof_ground3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24dab0e592c6b1f46b268c276c185f59, type: 3}
 --- !u!1001 &1378034689
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9174d3a361a2ed544bdd24a9c63d1a49, type: 3}
@@ -2309,12 +2460,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_cactus6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9174d3a361a2ed544bdd24a9c63d1a49, type: 3}
 --- !u!1001 &1392794109
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7b7b7c8e937160f48af6edf5d3464269, type: 3}
@@ -2366,12 +2521,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_board_floor2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b7b7c8e937160f48af6edf5d3464269, type: 3}
 --- !u!1001 &1396772224
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 314a1514a69f91147a76e12a87ea40ef, type: 3}
@@ -2423,12 +2582,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_tile_blue2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314a1514a69f91147a76e12a87ea40ef, type: 3}
 --- !u!1001 &1415238463
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 71f2fb4bda2c19d408942be5ba0449ce, type: 3}
@@ -2480,12 +2643,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_broken_pillar2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71f2fb4bda2c19d408942be5ba0449ce, type: 3}
 --- !u!1001 &1443388409
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9dffd20d748f8354cbbf059207045cb6, type: 3}
@@ -2537,12 +2704,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_sharp_pillar1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dffd20d748f8354cbbf059207045cb6, type: 3}
 --- !u!1001 &1446754257
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: eaaf06df59f2de84d8a03ebf8697af52, type: 3}
@@ -2594,12 +2765,16 @@ PrefabInstance:
       value: CGM_ENV_WEP_sword1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaaf06df59f2de84d8a03ebf8697af52, type: 3}
 --- !u!1001 &1526647760
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ba0ef012719c9c4478e645d586f0c89a, type: 3}
@@ -2651,12 +2826,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_grass5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0ef012719c9c4478e645d586f0c89a, type: 3}
 --- !u!1001 &1559403221
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f4a711d9fc88f344daac070a87fd5a71, type: 3}
@@ -2708,12 +2887,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_hedge2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4a711d9fc88f344daac070a87fd5a71, type: 3}
 --- !u!1001 &1563705520
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f5c69768bf4936c4aa662011e01b3d27, type: 3}
@@ -2765,12 +2948,16 @@ PrefabInstance:
       value: CGM_ENV_PRP_fire_bowl1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c69768bf4936c4aa662011e01b3d27, type: 3}
 --- !u!1001 &1588820319
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ae938c1357852184cb81a679b2837bac, type: 3}
@@ -2822,12 +3009,16 @@ PrefabInstance:
       value: CGM_ENV_GRD_hedge4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae938c1357852184cb81a679b2837bac, type: 3}
 --- !u!1001 &1607630004
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8761518d6302ee247bec2a34f1abeac9, type: 3}
@@ -2879,6 +3070,9 @@ PrefabInstance:
       value: CGM_ENV_VEG_cactus7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8761518d6302ee247bec2a34f1abeac9, type: 3}
 --- !u!1 &1611528527
 GameObject:
@@ -2907,9 +3101,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611528527}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -2930,10 +3132,15 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2951,9 +3158,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1611528530
 MeshFilter:
@@ -2970,19 +3179,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611528527}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.03, y: -0.03, z: -13.6}
   m_LocalScale: {x: 2.9039, y: 1, z: 1.4519261}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1636792102
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b68118be097f8564aace9467877903d6, type: 3}
@@ -3034,6 +3244,9 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_flower_pot2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68118be097f8564aace9467877903d6, type: 3}
 --- !u!1 &1732624991
 GameObject:
@@ -3075,9 +3288,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3111,19 +3332,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732624991}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1736839191
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1b26c627c8c6bce448606920471c808c, type: 3}
@@ -3175,6 +3397,9 @@ PrefabInstance:
       value: CGM_ENV_VEG_flower7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b26c627c8c6bce448606920471c808c, type: 3}
 --- !u!1 &1775721685
 GameObject:
@@ -3203,9 +3428,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775721685}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -3226,10 +3459,15 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3247,9 +3485,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1775721688
 MeshFilter:
@@ -3266,19 +3506,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775721685}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -51.73, y: -0.03, z: -13.6}
   m_LocalScale: {x: 2.9039, y: 1, z: 1.4519261}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1809576706
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c35d8e6a48423347898c342f135993e, type: 3}
@@ -3330,12 +3571,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_flower11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c35d8e6a48423347898c342f135993e, type: 3}
 --- !u!1001 &1863653402
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2183636f2ea9c974aa87f204d3bd39fe, type: 3}
@@ -3387,12 +3632,16 @@ PrefabInstance:
       value: CGM_ENV_PRP_fair_blow2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2183636f2ea9c974aa87f204d3bd39fe, type: 3}
 --- !u!1001 &1864920702
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 133565ef83a27ed4ca0555d2b79df581, type: 3}
@@ -3444,12 +3693,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_flower1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133565ef83a27ed4ca0555d2b79df581, type: 3}
 --- !u!1001 &1940240160
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3937be42f094f1c45940fdc6a4b3a83e, type: 3}
@@ -3501,12 +3754,16 @@ PrefabInstance:
       value: CGM_ENV_VEG_cactus10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3937be42f094f1c45940fdc6a4b3a83e, type: 3}
 --- !u!1001 &2027811163
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0d94bfa58be435c469251ef0e96181a1, type: 3}
@@ -3558,12 +3815,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_border2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d94bfa58be435c469251ef0e96181a1, type: 3}
 --- !u!1001 &2041221539
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d6fde3c415cd04d4d98fc3723c7125e8, type: 3}
@@ -3615,12 +3876,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_border1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6fde3c415cd04d4d98fc3723c7125e8, type: 3}
 --- !u!1001 &2078550025
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 60f8bdd91e79700439d03296f664ccf2, type: 3}
@@ -3672,12 +3937,16 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_golden_decor2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f8bdd91e79700439d03296f664ccf2, type: 3}
 --- !u!1001 &2120374110
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2aa932546c9421a4eb5effcfbdc8b573, type: 3}
@@ -3729,4 +3998,71 @@ PrefabInstance:
       value: CGM_ENV_BLD_LVL3_roof_ground2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aa932546c9421a4eb5effcfbdc8b573, type: 3}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 1732624994}
+  - {fileID: 1312195423}
+  - {fileID: 1378034689}
+  - {fileID: 1607630004}
+  - {fileID: 394199800}
+  - {fileID: 1154069323}
+  - {fileID: 1940240160}
+  - {fileID: 79978572}
+  - {fileID: 611585297}
+  - {fileID: 264948571}
+  - {fileID: 277065696}
+  - {fileID: 1864920702}
+  - {fileID: 1149435110}
+  - {fileID: 1736839191}
+  - {fileID: 142153345}
+  - {fileID: 1446754257}
+  - {fileID: 1809576706}
+  - {fileID: 1205272675}
+  - {fileID: 222342365}
+  - {fileID: 1366013777}
+  - {fileID: 1526647760}
+  - {fileID: 1012846710}
+  - {fileID: 1375850199}
+  - {fileID: 362009015}
+  - {fileID: 1305834087}
+  - {fileID: 849052996}
+  - {fileID: 1863653402}
+  - {fileID: 439895262}
+  - {fileID: 1563705520}
+  - {fileID: 403221359}
+  - {fileID: 1357166484}
+  - {fileID: 988787868}
+  - {fileID: 1588820319}
+  - {fileID: 1559403221}
+  - {fileID: 759751984}
+  - {fileID: 957068923}
+  - {fileID: 1415238463}
+  - {fileID: 1392794109}
+  - {fileID: 1443388409}
+  - {fileID: 1277440796}
+  - {fileID: 391250299}
+  - {fileID: 469971284}
+  - {fileID: 1636792102}
+  - {fileID: 1396772224}
+  - {fileID: 756337110}
+  - {fileID: 715848568}
+  - {fileID: 1176411202}
+  - {fileID: 117377678}
+  - {fileID: 1376433765}
+  - {fileID: 2120374110}
+  - {fileID: 614242212}
+  - {fileID: 861732797}
+  - {fileID: 508969565}
+  - {fileID: 2078550025}
+  - {fileID: 2027811163}
+  - {fileID: 2041221539}
+  - {fileID: 975512266}
+  - {fileID: 260726648}
+  - {fileID: 1611528531}
+  - {fileID: 1775721689}
