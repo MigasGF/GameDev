@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/PrincipalMenu.unity.meta
+guid: 83293d01c8d164d49b026c29a1ca41fd
+========
 guid: 0851605490a599b46b6ac5cb681d93ea
+>>>>>>>> master:Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
