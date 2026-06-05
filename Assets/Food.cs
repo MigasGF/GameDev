@@ -6,17 +6,21 @@ public class Food : MonoBehaviour
     public string nomeDaComida = "Maçã";
     public Sprite iconeUI; // A imagem que vai aparecer no inventário
     public float vidaRestaurada = 20f;
-    
-    // Quando o Esqueleto criar isto, pode vir com quantidades aleatórias (ex: 1 a 3)
     public int quantidade = 1; 
+
+    [Header("Comportamento")]
+    public bool quantidadeAleatoria = true; // <--- ADICIONAMOS ESTA OPÇÃO!
 
     [Header("Animação")]
     public float velocidadeRotacao = 50f;
 
     void Start()
     {
-        // Define uma quantidade aleatória entre 1 e 3 ao nascer, se quiseres
-        quantidade = Random.Range(1, 4);
+        // Agora o código só inventa um número se a caixa estiver ativada!
+        if (quantidadeAleatoria)
+        {
+            quantidade = Random.Range(1, 4);
+        }
     }
 
     void Update()
