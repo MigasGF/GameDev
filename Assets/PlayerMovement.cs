@@ -251,17 +251,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
     System.Collections.IEnumerator RotinaDeAtaque()
-{
-    estaAAtacar = true;
-    
-    if (scriptEspada != null) scriptEspada.PrepararNovoAtaque(); // Limpa a lista!
-    if (colliderEspada != null) colliderEspada.enabled = true; 
-    
-    anim.SetTrigger("bash");
-    
-    yield return new WaitForSeconds(1f); 
-    
-    if (colliderEspada != null) colliderEspada.enabled = false; 
-    estaAAtacar = false;
-}
+    {
+        estaAAtacar = true;
+        
+        if (scriptEspada != null) scriptEspada.PrepararNovoAtaque(); 
+        if (colliderEspada != null) colliderEspada.enabled = true; 
+        
+        anim.SetTrigger("bash");
+        
+        yield return new WaitForSeconds(0.5f); 
+        
+        AtacarInimigos(); 
+        
+        yield return new WaitForSeconds(0.5f); 
+        
+        if (colliderEspada != null) colliderEspada.enabled = false; 
+        estaAAtacar = false;
+    }
 }
