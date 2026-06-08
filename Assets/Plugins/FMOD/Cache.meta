@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Medieval Weapon Pack/Render Pipelines/HDRP.unitypackage.meta
+guid: 61006bb78f2d9fe41a03f453cab2aa43
+========
 guid: adf4a1867268dad4b81db4768149a4d4
 folderAsset: yes
+>>>>>>>> 2d918eeab744fb9a511f9d57ab400421bbfc00d5:Assets/Plugins/FMOD/Cache.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
