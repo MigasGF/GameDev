@@ -45,6 +45,21 @@ public class PlayerMovement : MonoBehaviour
     public bool poderCorteAr = false;
     public GameObject prefabCorteAr;
     public Transform pontoDisparoCorte;
+
+[Header("Sistema de Postura / Escudo")]
+    public GameObject objetoBarraBloqueio; 
+    public Image mascaraDaBarra;   // Controla o Fill (Arrastar o "Fill Mask")
+    public RawImage imagemDaBarra; // Controla a Cor (Arrastar o "Fill Image")
+    
+    public float posturaAtual = 0f;
+    public float posturaMaxima = 100f;
+    public float custoPosturaPorAtaque = 25f; 
+    public float velocidadeRegeneracao = 15f; 
+    private bool bloqueioQuebrado = false;
+
+    [Header("Cores da Barra")]
+    public Color corNormalBarra = Color.yellow;
+    public Color corBarraQuebrada = Color.red;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -57,6 +72,11 @@ public class PlayerMovement : MonoBehaviour
             barraVidaPlayer.maxValue = vidaMaxima;
             barraVidaPlayer.value = vidaAtual;
         }
+
+        if (objetoBarraBloqueio != null) objetoBarraBloqueio.SetActive(false);
+        
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 0f;
+        if (imagemDaBarra != null) imagemDaBarra.color = corNormalBarra;
 
         anim.updateMode = AnimatorUpdateMode.UnscaledTime;
 
@@ -192,6 +212,24 @@ public class PlayerMovement : MonoBehaviour
                 telaDeDano.color = Color.Lerp(telaDeDano.color, Color.clear, velocidadeRecuperacao * Time.unscaledDeltaTime);
             }
         }
+        // Regeneração
+        if (!bloqueioQuebrado && posturaAtual > 0)
+        {
+            posturaAtual -= velocidadeRegeneracao * Time.unscaledDeltaTime;
+            if (posturaAtual < 0) posturaAtual = 0;
+        }
+
+        // Atualiza a UI: A MÁSCARA controla o tamanho
+        if (mascaraDaBarra != null)
+        {
+            mascaraDaBarra.fillAmount = posturaAtual / posturaMaxima;
+        }
+
+        // Esconde ou mostra a barra inteira
+        if (objetoBarraBloqueio != null)
+        {
+            objetoBarraBloqueio.SetActive(posturaAtual > 0);
+        }
     }
 
 
@@ -201,17 +239,27 @@ public class PlayerMovement : MonoBehaviour
         if (estaMorto || estaInvencivel) return;
 
         // A Matemática do Escudo acontece aqui: verifica o mesmo botão direito do teu outro script
-        if (Input.GetMouseButton(1))
+        // Só bloqueia se carregar no botão E se o bloqueio não estiver quebrado!
+        if (Input.GetMouseButton(1) && !bloqueioQuebrado)
         {
             Vector3 direcaoDoAtaque = (atacante.position - transform.position).normalized;
             direcaoDoAtaque.y = 0;
             float angulo = Vector3.Angle(transform.forward, direcaoDoAtaque);
 
-            // Se o inimigo atacar num ângulo de 70 graus pela frente, o dano é anulado
             if (angulo <= 70f)
             {
                 Debug.Log("Bloqueaste o ataque com o escudo de frente!");
-                return;
+
+                // --- NOVO: Aumenta a barra amarela ---
+                posturaAtual += custoPosturaPorAtaque;
+
+                // Se a barra encher, ativa a punição de 5 segundos
+                if (posturaAtual >= posturaMaxima)
+                {
+                    StartCoroutine(RotinaQuebraBloqueio());
+                }
+
+                return; // Anula o dano
             }
             else
             {
@@ -239,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
         if (colliderEspada != null) colliderEspada.enabled = true;
 
         anim.SetTrigger("bash");
-        
+
         if (poderCorteAr && prefabCorteAr != null && pontoDisparoCorte != null)
         {
             yield return new WaitForSecondsRealtime(0.2f);
@@ -250,5 +298,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (colliderEspada != null) colliderEspada.enabled = false;
         estaAAtacar = false;
+    }
+
+    System.Collections.IEnumerator RotinaQuebraBloqueio()
+    {
+        bloqueioQuebrado = true;
+        posturaAtual = posturaMaxima; 
+
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 1f; 
+        if (imagemDaBarra != null) imagemDaBarra.color = corBarraQuebrada; // Fica vermelha!
+
+        Debug.Log("DEFESA QUEBRADA! Ficas atordoado por 5 segundos!");
+
+        yield return new WaitForSecondsRealtime(5f);
+
+        bloqueioQuebrado = false;
+        posturaAtual = 0f;
+
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 0f; 
+        if (imagemDaBarra != null) imagemDaBarra.color = corNormalBarra; // Volta a amarelo!
+
+        Debug.Log("Recuperaste a postura. Já podes bloquear de novo!");
     }
 }
