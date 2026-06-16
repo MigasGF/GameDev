@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,6 +34,32 @@ public class PlayerMovement : MonoBehaviour
     public SwordDamage scriptEspada;
     public bool estaAAtacar = false;
 
+    // --- ARMOR RATTLE (FMOD) ---
+    [field: SerializeField]
+    private EventReference armorRattle;        // Single FMOD event with "Intensity" parameter
+
+    // --- SWORD SWING (FMOD) ---
+    [field: SerializeField]
+    private EventReference swordSwing;         // Assign your Sword_Swing event in the Inspector
+    [field: SerializeField]
+    private EventReference swordImpact;        // Assign your Sword_Impact event in the Inspector
+    [Header("Sword Swing Settings")]
+    public float swingDelay = 0f;              // Delay before swing sound plays (tweak in Inspector)
+
+    // --- SHIELD (FMOD) ---
+    [field: SerializeField]
+    private EventReference shieldRaise;        // Assign your Shield_Raise event in the Inspector
+    [field: SerializeField]
+    private EventReference shieldBlock;        // Assign your Shield_Block event in the Inspector
+
+    [Header("Armor Rattle - Intensity Labels")]
+    // These values must match your FMOD labeled parameter:
+    // Light = 0, Medium = 1, Heavy = 2
+    public float runIntensity = 1f;        // Medium
+    public float jumpIntensity = 2f;       // Heavy
+    public float attackIntensity = 1f;     // Medium
+    public float blockIntensity = 2f;      // Heavy
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -60,6 +87,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !estaAAtacar) 
         {
             StartCoroutine(RotinaDeAtaque()); 
+        }
+
+        // --- SHIELD RAISE SOUND ---
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!shieldRaise.IsNull)
+            {
+                RuntimeManager.PlayOneShot(shieldRaise, transform.position);
+            }
+            PlayArmorRattle(blockIntensity);
         }
 
         // --- 2. SISTEMA DE GRAVIDADE, SALTO E ÁGUA ---
@@ -165,6 +202,32 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(movimentoFinal * Time.deltaTime); 
     }
 
+    // --- ARMOR RATTLE HELPER ---
+    // Creates an FMOD instance, sets the Intensity parameter, and plays it
+    public void PlayArmorRattle(float intensity)
+    {
+        if (armorRattle.IsNull) return;
+
+        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(armorRattle);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        instance.setParameterByName("Intensity", intensity);
+        instance.start();
+        instance.release(); // Release so FMOD cleans it up after playback
+    }
+
+    // --- SWORD IMPACT HELPER ---
+    // Creates an FMOD instance, sets the Enemy parameter, and plays it
+    public void PlaySwordImpact(float enemyType)
+    {
+        if (swordImpact.IsNull) return;
+
+        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(swordImpact);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        instance.setParameterByName("Enemy", enemyType);
+        instance.start();
+        instance.release();
+    }
+
     void AtacarInimigos()
     {
         InteligenciaEsqueleto[] esqueletos = FindObjectsByType<InteligenciaEsqueleto>(FindObjectsSortMode.None);
@@ -176,6 +239,7 @@ public class PlayerMovement : MonoBehaviour
             if (distancia <= alcanceDoAtaque)
             {
                 esqueleto.ReceberDano(danoDoAtaque);
+                PlaySwordImpact(esqueleto.enemySoundType);
             }
         }
         // --- ATAQUE AO BOSS ---
@@ -193,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
             if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
             {
                 boss.ReceberDano(danoDoAtaque);
+                PlaySwordImpact(0f); // TODO: add enemySoundType to BossController
                 Debug.Log("Acertaste no Boss! Distância: " + distanciaBoss);
             }
         }
@@ -210,6 +275,7 @@ public class PlayerMovement : MonoBehaviour
             if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
             {
                 bossGolem.ReceberDano(danoDoAtaque);
+                PlaySwordImpact(0f); // TODO: add enemySoundType to IntelligenceBoss
                 Debug.Log("Acertaste no Golem! Distância: " + distanciaBoss);
             }
         }
@@ -229,6 +295,13 @@ public class PlayerMovement : MonoBehaviour
             // Se o inimigo atacar num ângulo de 70 graus pela frente, o dano é anulado
             if (angulo <= 70f)
             {
+                // Play shield block impact sound
+                if (!shieldBlock.IsNull)
+                {
+                    RuntimeManager.PlayOneShot(shieldBlock, transform.position);
+                }
+                PlayArmorRattle(blockIntensity);
+
                 Debug.Log("Bloqueaste o ataque com o escudo de frente!");
                 return; 
             }
@@ -258,6 +331,21 @@ public class PlayerMovement : MonoBehaviour
         if (colliderEspada != null) colliderEspada.enabled = true; 
         
         anim.SetTrigger("bash");
+
+        // Wait for tweakable delay before playing swing sound
+        if (swingDelay > 0f)
+        {
+            yield return new WaitForSeconds(swingDelay);
+        }
+
+        // Play sword swing sound
+        if (!swordSwing.IsNull)
+        {
+            RuntimeManager.PlayOneShot(swordSwing, transform.position);
+        }
+
+        // Play armor rattle at attack intensity
+        PlayArmorRattle(attackIntensity);
         
         yield return new WaitForSeconds(0.5f); 
         

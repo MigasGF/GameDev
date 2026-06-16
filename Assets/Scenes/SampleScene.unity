@@ -16432,6 +16432,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16589,6 +16590,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &520453565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16708,7 +16723,49 @@ MonoBehaviour:
   alcanceDoAtaque: 2.5
   forcaSaltoAgua: 10
   boia: {fileID: 158871910}
+  colliderEspada: {fileID: 0}
+  scriptEspada: {fileID: 0}
   estaAAtacar: 0
+  armorRattle:
+    Guid:
+      Data1: 121122058
+      Data2: 1260172854
+      Data3: 1833144473
+      Data4: -1481393931
+    Path: event:/ArmorRattle
+  swordSwing:
+    Guid:
+      Data1: -1156692430
+      Data2: 1152897555
+      Data3: -1714612065
+      Data4: 1161024716
+    Path: event:/SwordSwings
+  swordImpact:
+    Guid:
+      Data1: 744860542
+      Data2: 1301396802
+      Data3: 770565782
+      Data4: 1133946543
+    Path: event:/SwordImpact
+  swingDelay: 0.5
+  shieldRaise:
+    Guid:
+      Data1: -740476033
+      Data2: 1341061218
+      Data3: -316739450
+      Data4: -430609110
+    Path: event:/ShieldEngage
+  shieldBlock:
+    Guid:
+      Data1: 1176784964
+      Data2: 1273000382
+      Data3: -1679718773
+      Data4: 1634802105
+    Path: event:/ShieldBlock
+  runIntensity: 0
+  jumpIntensity: 1
+  attackIntensity: 1
+  blockIntensity: 1
 --- !u!143 &521220187
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16800,6 +16857,27 @@ MonoBehaviour:
   - {fileID: 1909626197}
   - {fileID: 932868402}
   auraDoCristal: {fileID: 11728409}
+--- !u!114 &521220191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521220183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d11235ff9a29b469a52398b95c8fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
+  footstepEvent:
+    Guid:
+      Data1: 869497888
+      Data2: 1268837626
+      Data3: 273847218
+      Data4: -1992019625
+    Path: event:/Footsteps
+  stepInterval: 0.47
+  surfaceParameterName: Surface
 --- !u!1001 &522327292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28663,6 +28741,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 105042458}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -29417,6 +29496,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1927186500216150043, guid: 0186165c7862b8442947ca7c23d3f38a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 521220190}
+    - targetCorrespondingSourceObject: {fileID: 1927186500216150043, guid: 0186165c7862b8442947ca7c23d3f38a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521220191}
   m_SourcePrefab: {fileID: 100100000, guid: 0186165c7862b8442947ca7c23d3f38a, type: 3}
 --- !u!1001 &1037779117
 PrefabInstance:
@@ -32487,6 +32569,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 846456881}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -38933,6 +39016,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 81737196}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -42758,6 +42842,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 1906137716}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -43691,7 +43776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e46827a83d8a0245bfde4e2461deda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordDamage
-  scriptPlayer: {fileID: 521220186}
+  scriptPlayer: {fileID: 0}
 --- !u!1001 &1625881463
 PrefabInstance:
   m_ObjectHideFlags: 0

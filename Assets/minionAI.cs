@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI; 
-
 public class InteligenciaEsqueleto : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -11,17 +10,20 @@ public class InteligenciaEsqueleto : MonoBehaviour
     
     public float tempoEntreAtaques = 1.5f; 
     private float temporizador; 
-
     // --- SISTEMA DE VIDA ---
     public Slider barraVidaInimigo; 
     public float vidaAtual = 100f;
     public float danoDoAtaque = 15f; 
     private bool estaMorto = false;
 
+    [Header("Sound Settings")]
+    // This value is sent to the FMOD "Enemy" parameter on sword impact
+    // Set it in the Inspector per enemy type (e.g. Bones = 0, Stone = 1, etc.)
+    public float enemySoundType = 0f;  // Default: Bones
+
     [Header("Drop System")]
     public GameObject[] comidasParaDropar; // Arrasta os prefabs de comida para aqui no Inspector
     [Range(0f, 1f)] public float chanceDeDrop = 0.5f; // 50% de chance de deixar cair algo
-
     void Start()
     {
         if (barraVidaInimigo != null)
@@ -30,13 +32,10 @@ public class InteligenciaEsqueleto : MonoBehaviour
             barraVidaInimigo.value = vidaAtual;
         }
     }
-
     void Update()
     {
         if (estaMorto) return; 
-
         float distancia = Vector3.Distance(transform.position, player.position);
-
         if (distancia > distanciaParaAtacar)
         {
             agent.isStopped = false;
@@ -58,21 +57,16 @@ public class InteligenciaEsqueleto : MonoBehaviour
                 {
                     scriptPlayer.ReceberDano(danoDoAtaque, transform);
                 }
-
                 temporizador = Time.time + tempoEntreAtaques; 
             }
         }
-
         anim.SetFloat("Speed", agent.velocity.magnitude);
     }
-
     public void ReceberDano(float dano)
     {
         if (estaMorto) return;
-
         vidaAtual -= dano;
         if (barraVidaInimigo != null) barraVidaInimigo.value = vidaAtual;
-
         if (vidaAtual <= 0)
         {
             estaMorto = true;
