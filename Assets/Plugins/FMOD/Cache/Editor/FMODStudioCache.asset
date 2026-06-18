@@ -15,12 +15,39 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639161058718295339
+  lastModified: 639173952799514678
   FileSizes:
   - Name: Desktop
-    Value: 774
+    Value: 1154
   Exists: 1
---- !u!114 &-232260109390170507
+--- !u!114 &-6576011192983901216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Surface
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Surface
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3092378572
+    data2: 3453101442
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Sand
+  - Stone
+  - Wood
+  Exists: 1
+--- !u!114 &-2386329001418778798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,18 +57,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Footstep_Sand
+  m_Name: event:/ShieldBlock
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Footstep_Sand
+  Path: event:/ShieldBlock
   Guid:
-    Data1: 869497888
-    Data2: 1268837626
-    Data3: 273847218
-    Data4: -1992019625
+    Data1: 1176784964
+    Data2: 1273000382
+    Data3: -1679718773
+    Data4: 1634802105
   Banks:
   - {fileID: 6480384270972917931}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1255
+--- !u!114 &-2047338169280407819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SwordSwings
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SwordSwings
+  Guid:
+    Data1: -1156692430
+    Data2: 1152897555
+    Data3: -1714612065
+    Data4: 1161024716
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -63,17 +117,87 @@ MonoBehaviour:
   - {fileID: -8230622414129850312}
   - {fileID: 6480384270972917931}
   EditorEvents:
-  - {fileID: -232260109390170507}
+  - {fileID: 7056342958546983389}
+  - {fileID: 8007746719327698713}
+  - {fileID: -2047338169280407819}
+  - {fileID: -2386329001418778798}
+  - {fileID: 6042328728912169114}
+  - {fileID: 8656060596356161353}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6480384270972917931}
   StringsBanks:
   - {fileID: -8230622414129850312}
   cacheVersion: 131859
-  cacheTime: 639161058718295339
+  cacheTime: 639173952799514678
   SerializableEventsDict:
-  - key: event:/Footstep_Sand
+  - key: event:/ArmorRattle
     index: 0
+  - key: event:/Footsteps
+    index: 1
+  - key: event:/SwordSwings
+    index: 2
+  - key: event:/ShieldBlock
+    index: 3
+  - key: event:/SwordImpact
+    index: 4
+  - key: event:/ShieldEngage
+    index: 5
+--- !u!114 &6042328728912169114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SwordImpact
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SwordImpact
+  Guid:
+    Data1: 744860542
+    Data2: 1301396802
+    Data3: 770565782
+    Data4: 1133946543
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8816459566457457098}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6421352414224311683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ArmorRattle/Intensity
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 662590404
+    data2: 922558841
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Light
+  - Normal
+  - Heavy
+  Exists: 1
 --- !u!114 &6480384270972917931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,8 +213,117 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639161058718265170
+  lastModified: 639173952799474611
   FileSizes:
   - Name: Desktop
-    Value: 31840
+    Value: 142560
+  Exists: 1
+--- !u!114 &7056342958546983389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ArmorRattle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ArmorRattle
+  Guid:
+    Data1: 121122058
+    Data2: 1260172854
+    Data3: 1833144473
+    Data4: -1481393931
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6421352414224311683}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8007746719327698713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Footsteps
+  Guid:
+    Data1: 869497888
+    Data2: 1268837626
+    Data3: 273847218
+    Data4: -1992019625
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6576011192983901216}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8656060596356161353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ShieldEngage
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ShieldEngage
+  Guid:
+    Data1: -740476033
+    Data2: 1341061218
+    Data3: -316739450
+    Data4: -430609110
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1255
+--- !u!114 &8816459566457457098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SwordImpact/Enemy
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Enemy
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3658628852
+    data2: 850119528
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Bones
+  - Rock
   Exists: 1

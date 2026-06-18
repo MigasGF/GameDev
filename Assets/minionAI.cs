@@ -18,13 +18,20 @@ public class InteligenciaEsqueleto : MonoBehaviour
     public float danoDoAtaque = 15f; 
     private bool estaMorto = false;
 
+    // --- CONFIGURAÇÕES DE SOM (FMOD) ---
+    [Header("Sound Settings")]
+    // Este valor é enviado para o parâmetro "Enemy" no FMOD ao levar com a espada
+    // Configura no Inspector para cada tipo (ex: Ossos = 0, Pedra = 1, etc.)
+    public float enemySoundType = 0f; 
+
     [Header("Drop System")]
     public GameObject[] comidasParaDropar; // Arrasta os prefabs de comida para aqui no Inspector
     [Range(0f, 1f)] public float chanceDeDrop = 0.5f; // 50% de chance de deixar cair algo
 
+    // --- EFEITOS VISUAIS DE DANO (TUTORIAL) ---
     [Header("Efeitos Visuais de Dano")]
     public Renderer modelo3D; // Onde vais arrastar a malha 3D do esqueleto
-    public Color corPiscar = Color.red; // A cor que ele vai ficar (podes mudar no Unity)
+    public Color corPiscar = Color.red; // A cor que ele vai ficar ao levar dano
     private Color[] coresOriginais;
 
     void Start()
@@ -87,6 +94,8 @@ public class InteligenciaEsqueleto : MonoBehaviour
 
         vidaAtual -= dano;
         if (barraVidaInimigo != null) barraVidaInimigo.value = vidaAtual;
+        
+        // Ativa o efeito de piscar (Merge do Tutorial)
         if (modelo3D != null) StartCoroutine(EfeitoPiscar());
 
         if (vidaAtual <= 0)
@@ -96,15 +105,15 @@ public class InteligenciaEsqueleto : MonoBehaviour
             agent.isStopped = true;
             agent.enabled = false;
             Destroy(gameObject, 3f);
+            
             if (Random.value <= chanceDeDrop && comidasParaDropar.Length > 0)
             {
                 // Escolhe uma comida aleatória da lista
                 int indexAleatorio = Random.Range(0, comidasParaDropar.Length);
                 GameObject comidaEscolhida = comidasParaDropar[indexAleatorio];
             
-                // Cria a comida ligeiramente acima do chão para não ficar presa na malha 3D
+                // Cria a comida ligeiramente acima do chão
                 Vector3 posicaoDrop = transform.position + new Vector3(0, 1f, 0);
-                
                 Instantiate(comidaEscolhida, posicaoDrop, Quaternion.identity);
             } 
         }

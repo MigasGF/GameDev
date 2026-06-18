@@ -420,6 +420,10 @@ PrefabInstance:
       value: SM_Rocks_02 (113)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -626,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -975,6 +983,10 @@ PrefabInstance:
       value: SM_Rocks_02 (99)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1210,6 +1222,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2208,6 +2224,10 @@ PrefabInstance:
       value: SM_Rocks_02 (97)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2955,6 +2975,10 @@ PrefabInstance:
       value: SM_Rocks_02 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3367,6 +3391,10 @@ PrefabInstance:
       value: SM_Rocks_02 (84)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3458,6 +3486,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (94)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4208,6 +4240,10 @@ PrefabInstance:
       value: SM_Rocks_02 (48)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4380,6 +4416,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4591,6 +4631,10 @@ PrefabInstance:
     - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
       propertyPath: m_Name
       value: Tree_Palm (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4841,6 +4885,10 @@ PrefabInstance:
       value: SM_Rocks_02 (110)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5063,6 +5111,10 @@ PrefabInstance:
       value: SM_Rocks_02 (22)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5133,6 +5185,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5452,6 +5508,10 @@ PrefabInstance:
       value: SM_Rocks_01
       objectReference: {fileID: 0}
     - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5474,6 +5534,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5796,6 +5860,10 @@ PrefabInstance:
     - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6423,6 +6491,10 @@ PrefabInstance:
       value: SM_Rocks_02 (16)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7021,6 +7093,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8982,6 +9058,10 @@ PrefabInstance:
       value: SM_Rocks_02 (76)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9168,6 +9248,10 @@ PrefabInstance:
       value: SM_Rocks_02 (8)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9309,6 +9393,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (102)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10420,6 +10508,10 @@ PrefabInstance:
       value: SM_Rocks_02 (98)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10794,6 +10886,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (109)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11486,6 +11582,10 @@ PrefabInstance:
       value: SM_Rocks_02 (26)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11866,6 +11966,10 @@ PrefabInstance:
       value: SM_Rocks_02
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12114,6 +12218,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13037,9 +13145,9 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13047,14 +13155,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13197,6 +13297,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 1327127281}
 --- !u!1001 &520453565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13208,6 +13322,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13737,6 +13855,10 @@ PrefabInstance:
       value: SM_Rocks_02 (79)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13809,6 +13931,10 @@ PrefabInstance:
       value: SM_Rocks_02 (47)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13879,6 +14005,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14156,6 +14286,10 @@ PrefabInstance:
       value: SM_Rocks_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14226,6 +14360,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15595,6 +15733,10 @@ PrefabInstance:
       value: SM_Rocks_02 (92)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15726,6 +15868,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16590,6 +16736,10 @@ PrefabInstance:
       value: SM_Rocks_02 (27)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -17041,6 +17191,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (112)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17729,6 +17883,10 @@ PrefabInstance:
       value: SM_Rocks_02 (75)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -17799,6 +17957,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18098,6 +18260,10 @@ PrefabInstance:
       value: SM_Rocks_02 (104)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18246,6 +18412,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19092,6 +19262,10 @@ PrefabInstance:
       value: SM_Rocks_02 (43)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19219,6 +19393,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19555,6 +19733,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20311,6 +20493,10 @@ PrefabInstance:
       value: SM_Rocks_05
       objectReference: {fileID: 0}
     - target: {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -20919,6 +21105,10 @@ PrefabInstance:
       value: SM_Rocks_02 (106)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21215,6 +21405,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21992,6 +22186,10 @@ PrefabInstance:
       value: SM_Rocks_02 (49)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22533,6 +22731,10 @@ PrefabInstance:
       value: SM_Rocks_02 (100)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22603,6 +22805,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23002,6 +23208,10 @@ PrefabInstance:
       value: SM_Rocks_02 (68)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -23266,6 +23476,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24310,6 +24524,10 @@ PrefabInstance:
       value: SM_Rocks_02 (87)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25129,6 +25347,10 @@ PrefabInstance:
       value: SM_Rocks_02 (21)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25290,6 +25512,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25610,6 +25836,10 @@ PrefabInstance:
       value: SM_Rocks_02 (39)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -25680,6 +25910,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26325,6 +26559,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 105042458}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -26522,6 +26757,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26769,6 +27008,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27162,6 +27405,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (105)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27820,6 +28067,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28741,6 +28992,10 @@ PrefabInstance:
       value: SM_Rocks_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -28784,6 +29039,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28899,6 +29158,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29042,6 +29305,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29200,6 +29467,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29476,6 +29747,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30069,6 +30344,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 846456881}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -30280,6 +30556,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32259,6 +32539,10 @@ PrefabInstance:
       value: SM_Rocks_02 (93)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -32329,6 +32613,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32900,6 +33188,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33681,6 +33973,10 @@ PrefabInstance:
       value: SM_Rocks_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933749797280981253, guid: 46e654c102087004988f6462e5ae7133, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -34158,6 +34454,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1327127283}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1327127288}
   m_SourcePrefab: {fileID: 100100000, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
 --- !u!4 &1327127278 stripped
 Transform:
@@ -34335,6 +34634,67 @@ MonoBehaviour:
   velocidadeRegeneracao: 5
   corNormalBarra: {r: 0.9803922, g: 0.6431373, b: 0, a: 1}
   corBarraQuebrada: {r: 1, g: 0, b: 0, a: 1}
+  armorRattle:
+    Guid:
+      Data1: 121122058
+      Data2: 1260172854
+      Data3: 1833144473
+      Data4: -1481393931
+    Path: event:/ArmorRattle
+  runIntensity: 1
+  jumpIntensity: 2
+  attackIntensity: 1
+  blockIntensity: 2
+  swordSwing:
+    Guid:
+      Data1: -1156692430
+      Data2: 1152897555
+      Data3: -1714612065
+      Data4: 1161024716
+    Path: event:/SwordSwings
+  swordImpact:
+    Guid:
+      Data1: 744860542
+      Data2: 1301396802
+      Data3: 770565782
+      Data4: 1133946543
+    Path: event:/SwordImpact
+  swingDelay: 0
+  shieldRaise:
+    Guid:
+      Data1: -740476033
+      Data2: 1341061218
+      Data3: -316739450
+      Data4: -430609110
+    Path: event:/ShieldEngage
+  shieldBlock:
+    Guid:
+      Data1: 1176784964
+      Data2: 1273000382
+      Data3: -1679718773
+      Data4: 1634802105
+    Path: event:/ShieldBlock
+--- !u!114 &1327127288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327127281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d11235ff9a29b469a52398b95c8fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
+  footstepEvent:
+    Guid:
+      Data1: 869497888
+      Data2: 1268837626
+      Data3: 273847218
+      Data4: -1992019625
+    Path: event:/Footsteps
+  stepInterval: 0.47
+  surfaceParameterName: Surface
 --- !u!1001 &1327261697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34346,6 +34706,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34515,6 +34879,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -35879,6 +36247,10 @@ PrefabInstance:
       value: SM_Rocks_02 (17)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -36474,6 +36846,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37130,6 +37506,10 @@ PrefabInstance:
       value: SM_Rocks_02 (71)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -37449,6 +37829,10 @@ PrefabInstance:
       value: SM_Rocks_02 (96)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -37637,6 +38021,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 81737196}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -38020,6 +38405,10 @@ PrefabInstance:
       value: SM_Rocks_02 (55)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -38328,6 +38717,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -38728,6 +39121,10 @@ PrefabInstance:
       value: SM_Rocks_02 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -38983,6 +39380,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39793,6 +40194,10 @@ PrefabInstance:
       value: SM_Rocks_02 (81)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -40516,6 +40921,10 @@ PrefabInstance:
       value: SM_Rocks_02 (37)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -40717,6 +41126,10 @@ PrefabInstance:
     - target: {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 7809331290410404023, guid: 0dd050efb10a21c4f8d1c3ab7e33f70b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -40987,6 +41400,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -41335,6 +41752,10 @@ PrefabInstance:
       value: SM_Rocks_02 (46)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -41560,6 +41981,7 @@ MonoBehaviour:
   barraVidaInimigo: {fileID: 1906137716}
   vidaAtual: 100
   danoDoAtaque: 10
+  enemySoundType: 0
   comidasParaDropar:
   - {fileID: 2080921258}
   - {fileID: 785783160}
@@ -42243,6 +42665,10 @@ PrefabInstance:
       value: SM_Rocks_02 (42)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -42388,6 +42814,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -42826,6 +43256,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -43443,6 +43877,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -44079,6 +44517,10 @@ PrefabInstance:
       value: SM_Rocks_02 (78)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -44298,6 +44740,10 @@ PrefabInstance:
       value: SM_Rocks_02 (53)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -44368,6 +44814,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -44526,6 +44976,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -44870,6 +45324,10 @@ PrefabInstance:
       value: SM_Rocks_02 (70)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -44940,6 +45398,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45084,6 +45546,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45271,6 +45737,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46018,6 +46488,10 @@ PrefabInstance:
       value: SM_Rocks_02 (12)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46088,6 +46562,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46245,6 +46723,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46565,6 +47047,10 @@ PrefabInstance:
       value: SM_Rocks_02 (35)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46724,6 +47210,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47497,6 +47987,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48312,6 +48806,10 @@ PrefabInstance:
       value: SM_Rocks_02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -48382,6 +48880,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48909,6 +49411,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49850,6 +50356,10 @@ PrefabInstance:
       value: SM_Rocks_02 (86)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -50075,6 +50585,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (107)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50339,6 +50853,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50695,6 +51213,10 @@ PrefabInstance:
       value: SM_Rocks_02 (45)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -50891,6 +51413,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -51695,6 +52221,10 @@ PrefabInstance:
       value: SM_Rocks_02 (62)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -51926,6 +52456,10 @@ PrefabInstance:
       value: SM_Rocks_02 (23)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -52102,6 +52636,10 @@ PrefabInstance:
       value: SM_Rocks_02 (77)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -52172,6 +52710,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -52416,6 +52958,10 @@ PrefabInstance:
       value: SM_Rocks_02 (54)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -52645,6 +53191,10 @@ PrefabInstance:
     - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -53226,6 +53776,10 @@ PrefabInstance:
       value: SM_Rocks_02 (18)
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -53317,6 +53871,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -53446,6 +54004,10 @@ PrefabInstance:
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_Name
       value: SM_Rocks_02 (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -53605,6 +54167,10 @@ PrefabInstance:
     - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
       propertyPath: m_Name
       value: Tree_Palm (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 3476177982938520197, guid: 3e4a35dbed2a8154ab26781179422423, type: 3}
       propertyPath: m_StaticEditorFlags
