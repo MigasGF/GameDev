@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour
 {
     private float rotationVelocity;
     public float speed = 5f;
     public float rotationSpeed = 720f;
-    
+
     private Animator anim;
     private CharacterController controller;
     private Transform mainCamera;
@@ -15,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // --- SISTEMA DE VIDA E ATAQUE ---
     public Slider barraVidaPlayer;
     public float vidaAtual = 100f;
+    public float vidaMaxima = 100f;
     public float danoDoAtaque = 35f;
     public float alcanceDoAtaque = 2.5f;
     private bool estaMorto = false;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     float velocidadeVertical;
     public float forcaSaltoAgua = 6f;
     float forcaSalto = 5f;
-    float gravidade = -15f; 
+    float gravidade = -15f;
 
     // Limite de queda do jogador (Nível da Água)
     private float limiteInferiorY = -0.1f;
@@ -34,44 +34,51 @@ public class PlayerMovement : MonoBehaviour
     public SwordDamage scriptEspada;
     public bool estaAAtacar = false;
 
-    // --- ARMOR RATTLE (FMOD) ---
-    [field: SerializeField]
-    private EventReference armorRattle;        // Single FMOD event with "Intensity" parameter
+    [Header("Feedback de Dano")]
+    public Image telaDeDano; // A imagem que vai piscar
+    public Color corDoDano = new Color(1f, 0f, 0f, 0.4f); // Vermelho com alguma transparência
+    public float velocidadeRecuperacao = 4f; // Quão rápido o vermelho desaparece
+    private bool levouPancada = false;
+    public bool estaInvencivel = false;
 
-    // --- SWORD SWING (FMOD) ---
-    [field: SerializeField]
-    private EventReference swordSwing;         // Assign your Sword_Swing event in the Inspector
-    [field: SerializeField]
-    private EventReference swordImpact;        // Assign your Sword_Impact event in the Inspector
-    [Header("Sword Swing Settings")]
-    public float swingDelay = 0f;              // Delay before swing sound plays (tweak in Inspector)
+    [Header("Poderes Mágicos")]
+    public bool poderCorteAr = false;
+    public GameObject prefabCorteAr;
+    public Transform pontoDisparoCorte;
 
-    // --- SHIELD (FMOD) ---
-    [field: SerializeField]
-    private EventReference shieldRaise;        // Assign your Shield_Raise event in the Inspector
-    [field: SerializeField]
-    private EventReference shieldBlock;        // Assign your Shield_Block event in the Inspector
+[Header("Sistema de Postura / Escudo")]
+    public GameObject objetoBarraBloqueio; 
+    public Image mascaraDaBarra;   // Controla o Fill (Arrastar o "Fill Mask")
+    public RawImage imagemDaBarra; // Controla a Cor (Arrastar o "Fill Image")
+    
+    public float posturaAtual = 0f;
+    public float posturaMaxima = 100f;
+    public float custoPosturaPorAtaque = 25f; 
+    public float velocidadeRegeneracao = 15f; 
+    private bool bloqueioQuebrado = false;
 
-    [Header("Armor Rattle - Intensity Labels")]
-    // These values must match your FMOD labeled parameter:
-    // Light = 0, Medium = 1, Heavy = 2
-    public float runIntensity = 1f;        // Medium
-    public float jumpIntensity = 2f;       // Heavy
-    public float attackIntensity = 1f;     // Medium
-    public float blockIntensity = 2f;      // Heavy
-
+    [Header("Cores da Barra")]
+    public Color corNormalBarra = Color.yellow;
+    public Color corBarraQuebrada = Color.red;
     void Start()
     {
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        mainCamera = Camera.main.transform; 
+        mainCamera = Camera.main.transform;
         anim.applyRootMotion = false;
 
         if (barraVidaPlayer != null)
         {
-            barraVidaPlayer.maxValue = 100f;
+            barraVidaPlayer.maxValue = vidaMaxima;
             barraVidaPlayer.value = vidaAtual;
         }
+
+        if (objetoBarraBloqueio != null) objetoBarraBloqueio.SetActive(false);
+        
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 0f;
+        if (imagemDaBarra != null) imagemDaBarra.color = corNormalBarra;
+
+        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
 
         // Garante que a bóia começa invisível quando o jogo arranca
         if (boia != null) boia.SetActive(false);
@@ -84,19 +91,9 @@ public class PlayerMovement : MonoBehaviour
         if (estaMorto) return;
 
         // --- 1. SISTEMA DE ATAQUE ---
-        if (Input.GetMouseButtonDown(0) && !estaAAtacar) 
+        if (Input.GetMouseButtonDown(0) && !estaAAtacar)
         {
-            StartCoroutine(RotinaDeAtaque()); 
-        }
-
-        // --- SHIELD RAISE SOUND ---
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!shieldRaise.IsNull)
-            {
-                RuntimeManager.PlayOneShot(shieldRaise, transform.position);
-            }
-            PlayArmorRattle(blockIntensity);
+            StartCoroutine(RotinaDeAtaque());
         }
 
         // --- 2. SISTEMA DE GRAVIDADE, SALTO E ÁGUA ---
@@ -132,10 +129,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (controller.isGrounded && !noFundoDoPoco)
             {
-                velocidadeVertical = -2f; 
+                velocidadeVertical = -2f;
             }
-            
-            if (Input.GetKeyDown(KeyCode.Space)) 
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (noFundoDoPoco)
                 {
@@ -147,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 anim.SetTrigger("jump");
-                
+
                 // Desativa a bóia e a animação imediatamente ao saltar para a transição ser fluída
                 if (boia != null) boia.SetActive(false);
                 anim.SetBool("inWater", false);
@@ -156,10 +153,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (!noFundoDoPoco || velocidadeVertical > 0)
         {
-            velocidadeVertical += gravidade * Time.deltaTime;
+            velocidadeVertical += gravidade * Time.unscaledDeltaTime;
         }
 
-// --- 3. SISTEMA DE MOVIMENTO (Baseado na Câmara) ---
+        // --- 3. SISTEMA DE MOVIMENTO (Baseado na Câmara) ---
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(h, 0f, v).normalized;
@@ -174,18 +171,18 @@ public class PlayerMovement : MonoBehaviour
             float anguloMovimento = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
             Vector3 direcaoDoMovimento = Quaternion.Euler(0f, anguloMovimento, 0f) * Vector3.forward;
 
-            // 2. Decide para onde o boneco deve OLHAR
-            if (v < 0) 
+            // 2. Decide para onde o boneco deve OLHAR (imune ao Time Stop!)
+            if (v < 0)
             {
-                // Se carregou no 'S' (v é negativo), obrigamos o boneco a olhar para a frente da câmara
-                float anguloOlhar = mainCamera.eulerAngles.y; 
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloOlhar, ref rotationVelocity, 0.25f);
+                // Anda para trás, olha para a frente
+                float anguloOlhar = mainCamera.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloOlhar, ref rotationVelocity, 0.25f, Mathf.Infinity, Time.unscaledDeltaTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
             }
             else
             {
-                // Se carregou no W, A ou D, roda o corpo normalmente para a direção do movimento
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloMovimento, ref rotationVelocity, 0.25f);
+                // Anda para a frente/lados, roda normalmente
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloMovimento, ref rotationVelocity, 0.25f, Mathf.Infinity, Time.unscaledDeltaTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
             }
 
@@ -198,126 +195,85 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // --- 4. APLICAR TODO O MOVIMENTO DE UMA VEZ ---
-        movimentoFinal.y = velocidadeVertical; 
-        controller.Move(movimentoFinal * Time.deltaTime); 
-    }
+        movimentoFinal.y = velocidadeVertical;
+        controller.Move(movimentoFinal * Time.unscaledDeltaTime);
 
-    // --- ARMOR RATTLE HELPER ---
-    // Creates an FMOD instance, sets the Intensity parameter, and plays it
-    public void PlayArmorRattle(float intensity)
-    {
-        if (armorRattle.IsNull) return;
-
-        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(armorRattle);
-        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        instance.setParameterByName("Intensity", intensity);
-        instance.start();
-        instance.release(); // Release so FMOD cleans it up after playback
-    }
-
-    // --- SWORD IMPACT HELPER ---
-    // Creates an FMOD instance, sets the Enemy parameter, and plays it
-    public void PlaySwordImpact(float enemyType)
-    {
-        if (swordImpact.IsNull) return;
-
-        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(swordImpact);
-        instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
-        instance.setParameterByName("Enemy", enemyType);
-        instance.start();
-        instance.release();
-    }
-
-    void AtacarInimigos()
-    {
-        InteligenciaEsqueleto[] esqueletos = FindObjectsByType<InteligenciaEsqueleto>(FindObjectsSortMode.None);
-        
-        foreach (InteligenciaEsqueleto esqueleto in esqueletos)
+        if (telaDeDano != null)
         {
-            float distancia = Vector3.Distance(transform.position, esqueleto.transform.position);
-            
-            if (distancia <= alcanceDoAtaque)
+            if (levouPancada)
             {
-                esqueleto.ReceberDano(danoDoAtaque);
-                PlaySwordImpact(esqueleto.enemySoundType);
+                // Fica vermelho instantaneamente!
+                telaDeDano.color = corDoDano;
+                levouPancada = false;
+            }
+            else
+            {
+                // Vai desvanecendo suavemente de volta para transparente (Color.clear)
+                telaDeDano.color = Color.Lerp(telaDeDano.color, Color.clear, velocidadeRecuperacao * Time.unscaledDeltaTime);
             }
         }
-        // --- ATAQUE AO BOSS ---
-        BossController boss = FindObjectOfType<BossController>();
-        if (boss != null)
+        // Regeneração
+        if (!bloqueioQuebrado && posturaAtual > 0)
         {
-            // Criamos posições virtuais no chão (Y = 0) para o jogo não se deixar enganar pela altura do Boss!
-            Vector3 posicaoPlayerNoChao = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 posicaoBossNoChao = new Vector3(boss.transform.position.x, 0, boss.transform.position.z);
-            
-            // Agora a distância é medida apenas a direito, sem contar com a altura
-            float distanciaBoss = Vector3.Distance(posicaoPlayerNoChao, posicaoBossNoChao);
-            
-            // Se o Collider dele continuar largo, aumenta este + 5.0f para + 7.0f ou mais!
-            if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
-            {
-                boss.ReceberDano(danoDoAtaque);
-                PlaySwordImpact(0f); // TODO: add enemySoundType to BossController
-                Debug.Log("Acertaste no Boss! Distância: " + distanciaBoss);
-            }
+            posturaAtual -= velocidadeRegeneracao * Time.unscaledDeltaTime;
+            if (posturaAtual < 0) posturaAtual = 0;
         }
-        
-        IntelligenceBoss bossGolem = FindObjectOfType<IntelligenceBoss>();
-        if (bossGolem != null)
+
+        // Atualiza a UI: A MÁSCARA controla o tamanho
+        if (mascaraDaBarra != null)
         {
-            // Usamos a tua mesma lógica de posições no chão (Y = 0)
-            Vector3 posicaoPlayerNoChao = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 posicaoBossNoChao = new Vector3(bossGolem.transform.position.x, 0, bossGolem.transform.position.z);
-            
-            float distanciaBoss = Vector3.Distance(posicaoPlayerNoChao, posicaoBossNoChao);
-            
-            // Margem de acerto do Golem
-            if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
-            {
-                bossGolem.ReceberDano(danoDoAtaque);
-                PlaySwordImpact(0f); // TODO: add enemySoundType to IntelligenceBoss
-                Debug.Log("Acertaste no Golem! Distância: " + distanciaBoss);
-            }
+            mascaraDaBarra.fillAmount = posturaAtual / posturaMaxima;
+        }
+
+        // Esconde ou mostra a barra inteira
+        if (objetoBarraBloqueio != null)
+        {
+            objetoBarraBloqueio.SetActive(posturaAtual > 0);
         }
     }
+
+
 
     public void ReceberDano(float dano, Transform atacante)
     {
-        if (estaMorto) return;
+        if (estaMorto || estaInvencivel) return;
 
         // A Matemática do Escudo acontece aqui: verifica o mesmo botão direito do teu outro script
-        if (Input.GetMouseButton(1))
+        // Só bloqueia se carregar no botão E se o bloqueio não estiver quebrado!
+        if (Input.GetMouseButton(1) && !bloqueioQuebrado)
         {
             Vector3 direcaoDoAtaque = (atacante.position - transform.position).normalized;
-            direcaoDoAtaque.y = 0; 
+            direcaoDoAtaque.y = 0;
             float angulo = Vector3.Angle(transform.forward, direcaoDoAtaque);
 
-            // Se o inimigo atacar num ângulo de 70 graus pela frente, o dano é anulado
             if (angulo <= 70f)
             {
-                // Play shield block impact sound
-                if (!shieldBlock.IsNull)
-                {
-                    RuntimeManager.PlayOneShot(shieldBlock, transform.position);
-                }
-                PlayArmorRattle(blockIntensity);
-
                 Debug.Log("Bloqueaste o ataque com o escudo de frente!");
-                return; 
+
+                // --- NOVO: Aumenta a barra amarela ---
+                posturaAtual += custoPosturaPorAtaque;
+
+                // Se a barra encher, ativa a punição de 5 segundos
+                if (posturaAtual >= posturaMaxima)
+                {
+                    StartCoroutine(RotinaQuebraBloqueio());
+                }
+
+                return; // Anula o dano
             }
             else
             {
                 Debug.Log("Ai! Levaste dano pelas costas ou lado!");
             }
         }
-
+        levouPancada = true;
         vidaAtual -= dano;
         if (barraVidaPlayer != null) barraVidaPlayer.value = vidaAtual;
 
         if (vidaAtual <= 0)
         {
             estaMorto = true;
-            anim.SetTrigger("die"); 
+            anim.SetTrigger("die");
             controller.enabled = false;
             Debug.Log("Morreste!");
         }
@@ -326,34 +282,42 @@ public class PlayerMovement : MonoBehaviour
     System.Collections.IEnumerator RotinaDeAtaque()
     {
         estaAAtacar = true;
-        
-        if (scriptEspada != null) scriptEspada.PrepararNovoAtaque(); 
-        if (colliderEspada != null) colliderEspada.enabled = true; 
-        
+
+        if (scriptEspada != null) scriptEspada.PrepararNovoAtaque(); // Limpa a lista!
+        if (colliderEspada != null) colliderEspada.enabled = true;
+
         anim.SetTrigger("bash");
 
-        // Wait for tweakable delay before playing swing sound
-        if (swingDelay > 0f)
+        if (poderCorteAr && prefabCorteAr != null && pontoDisparoCorte != null)
         {
-            yield return new WaitForSeconds(swingDelay);
+            yield return new WaitForSecondsRealtime(0.2f);
+            Instantiate(prefabCorteAr, pontoDisparoCorte.position, transform.rotation);
         }
 
-        // Play sword swing sound
-        if (!swordSwing.IsNull)
-        {
-            RuntimeManager.PlayOneShot(swordSwing, transform.position);
-        }
+        yield return new WaitForSecondsRealtime(0.5f);
 
-        // Play armor rattle at attack intensity
-        PlayArmorRattle(attackIntensity);
-        
-        yield return new WaitForSeconds(0.5f); 
-        
-        AtacarInimigos(); 
-        
-        yield return new WaitForSeconds(0.5f); 
-        
-        if (colliderEspada != null) colliderEspada.enabled = false; 
+        if (colliderEspada != null) colliderEspada.enabled = false;
         estaAAtacar = false;
+    }
+
+    System.Collections.IEnumerator RotinaQuebraBloqueio()
+    {
+        bloqueioQuebrado = true;
+        posturaAtual = posturaMaxima; 
+
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 1f; 
+        if (imagemDaBarra != null) imagemDaBarra.color = corBarraQuebrada; // Fica vermelha!
+
+        Debug.Log("DEFESA QUEBRADA! Ficas atordoado por 5 segundos!");
+
+        yield return new WaitForSecondsRealtime(5f);
+
+        bloqueioQuebrado = false;
+        posturaAtual = 0f;
+
+        if (mascaraDaBarra != null) mascaraDaBarra.fillAmount = 0f; 
+        if (imagemDaBarra != null) imagemDaBarra.color = corNormalBarra; // Volta a amarelo!
+
+        Debug.Log("Recuperaste a postura. Já podes bloquear de novo!");
     }
 }
