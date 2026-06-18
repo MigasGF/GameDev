@@ -23,8 +23,13 @@ public class Inventory : MonoBehaviour
 
     private PlayerMovement playerScript;
 
-    [Header("Efeitos Especiais")]
-    public GameObject auraDoCristal; // Vamos ligar a aura aqui!
+
+    [Header("Efeitos")]
+    public GameObject auraDanoVermelha; // Cristal Vermelho
+    public GameObject auraTempoAzul;    // Cristal Azul
+    public GameObject auraInvencivelRoxa;   // Cristal Roxo
+    public GameObject particulasCura;   // Comida 
+
 
     void Start()
     {
@@ -47,13 +52,13 @@ public class Inventory : MonoBehaviour
             ConsumirItemSelecionado();
         }
     }
-    
+
 
     // Apanhar os itens do chão
     void OnTriggerEnter(Collider other)
     {
         Food comidaNoChao = other.GetComponent<Food>();
-        
+
         if (comidaNoChao != null)
         {
             if (AdicionarAoInventario(comidaNoChao))
@@ -72,7 +77,7 @@ public class Inventory : MonoBehaviour
             {
                 slots[i].quantidade += item.quantidade;
                 AtualizarUI();
-                return true; 
+                return true;
             }
         }
 
@@ -101,33 +106,86 @@ public class Inventory : MonoBehaviour
 
         if (slot.quantidade > 0)
         {
-            // --- CASO 1: É o Cristal ---
-            if (slot.nomeItem == "Cristal")
+            if (slot.nomeItem == "Cristal Vermelho")
             {
-                Debug.Log("Poder do Cristal Ativado!");
-                
-                // Liga o efeito da Aura
-                if (auraDoCristal != null) auraDoCristal.SetActive(true);
-                
-                // Aqui no futuro podes fazer a espada dar mais dano:
-                // playerScript.danoDoAtaque = 50f; 
-
+                StartCoroutine(EfeitoCristalVermelho());
                 GastarItem(slot);
             }
-            // --- CASO 2: É Comida (e a vida não está no máximo) ---
-            else if (playerScript.vidaAtual < 100f)
+            else if (slot.nomeItem == "Cristal Azul")
             {
-                Debug.Log("Comida consumida! Vida curada.");
+                StartCoroutine(EfeitoCristalAzul());
+                GastarItem(slot);
+            }
+            else if (slot.nomeItem == "Cristal Roxo")
+            {
+                StartCoroutine(EfeitoCristalRoxo());
+                GastarItem(slot);
+            }
+            // --- COMIDA NORMAL ---
+            else if (playerScript.vidaAtual < playerScript.vidaMaxima)
+            {
                 playerScript.vidaAtual += slot.vidaRestaurada;
-                
-                if (playerScript.vidaAtual > 100f) playerScript.vidaAtual = 100f;
-                
-                if (playerScript.barraVidaPlayer != null) 
+                if (playerScript.vidaAtual > playerScript.vidaMaxima)
+                    playerScript.vidaAtual = playerScript.vidaMaxima;
+
+                if (playerScript.barraVidaPlayer != null)
                     playerScript.barraVidaPlayer.value = playerScript.vidaAtual;
 
+                if (particulasCura != null)
+                {
+                    GameObject aura = Instantiate(particulasCura, transform.position, Quaternion.identity);
+                    aura.transform.SetParent(this.transform);
+                }
                 GastarItem(slot);
             }
         }
+    }
+
+    // ==========================================
+    // PODERES DOS CRISTAIS
+    // ==========================================
+
+    System.Collections.IEnumerator EfeitoCristalVermelho()
+    {
+        Debug.Log("Poder Vermelho: +Dano!");
+        if (auraDanoVermelha != null) auraDanoVermelha.SetActive(true);
+
+        playerScript.danoDoAtaque = 50f; // Boost
+
+        // Espera 30 segundos usando tempo real
+        yield return new WaitForSecondsRealtime(30f);
+
+        playerScript.danoDoAtaque = 35f; // Volta ao normal
+        if (auraDanoVermelha != null) auraDanoVermelha.SetActive(false);
+    }
+
+    System.Collections.IEnumerator EfeitoCristalAzul()
+    {
+        Debug.Log("Poder Azul: Cortes pelo Ar Ativados!");
+        if (auraTempoAzul != null) auraTempoAzul.SetActive(true);
+
+        playerScript.poderCorteAr = true; // ATIVA O PODER
+
+        yield return new WaitForSeconds(30f); // DURA 30 SEGUNDOS
+
+        playerScript.poderCorteAr = false; // DESATIVA O PODER
+        if (auraTempoAzul != null) auraTempoAzul.SetActive(false);
+        Debug.Log("Poder Azul: A espada voltou ao normal.");
+    }
+
+    System.Collections.IEnumerator EfeitoCristalRoxo()
+    {
+        Debug.Log("Poder Roxo: Invencibilidade Ativada!");
+        if (auraInvencivelRoxa != null) auraInvencivelRoxa.SetActive(true);
+
+        playerScript.estaInvencivel = true; // LIGA O GOD MODE
+
+        // Coloquei 15 segundos, mas podes mudar este valor para o que achares justo!
+        yield return new WaitForSecondsRealtime(15f);
+
+        playerScript.estaInvencivel = false; // DESLIGA O GOD MODE
+        if (auraInvencivelRoxa != null) auraInvencivelRoxa.SetActive(false);
+        Debug.Log("Poder Roxo: A Invencibilidade acabou.");
     }
 
     // Função auxiliar para não repetirmos código

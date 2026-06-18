@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6dd52688c240d9a46838fdd3786ec1a4
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 28991
+  packageName: Greatsword of Frozen Night
+  packageVersion: v1
+  assetPath: Assets/GreatswordofFrozenNight/SpecLightDiffuse.shader
+  uploadId: 77033

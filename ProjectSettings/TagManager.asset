@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boss
   - Inimigo
+  - Stone
   layers:
   - Default
   - TransparentFX
