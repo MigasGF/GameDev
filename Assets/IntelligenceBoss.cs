@@ -36,6 +36,10 @@ public class IntelligenceBoss : MonoBehaviour
     private bool estaAtacar = false; 
     private bool bossAtivo = false; // Começa a dormir (parado)
 
+    [Header("Sistema de Loot")]
+    // Estes parênteses retos [] significam que é uma "lista" onde podes pôr vários objetos
+    public GameObject[] cristaisParaDropar;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -172,7 +176,27 @@ public class IntelligenceBoss : MonoBehaviour
 
             agent.isStopped = true;
             agent.enabled = false;
+            DroparCristal();
             Destroy(gameObject, 5f);
+        }
+    }
+
+    void DroparCristal()
+    {
+        // Verifica se tens cristais na lista
+        if (cristaisParaDropar != null && cristaisParaDropar.Length > 0)
+        {
+            // O Unity escolhe um número à sorte entre 0 e o número de cristais que lá puseste
+            int indiceSorteado = Random.Range(0, cristaisParaDropar.Length);
+            
+            GameObject cristalEscolhido = cristaisParaDropar[indiceSorteado];
+
+            if (cristalEscolhido != null)
+            {
+                // Cria o cristal na posição do Boss, mas um bocadinho mais acima (Vector3.up) para não ficar enterrado no chão
+                Instantiate(cristalEscolhido, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+                Debug.Log("O Boss dropou o item: " + cristalEscolhido.name);
+            }
         }
     }
 }
