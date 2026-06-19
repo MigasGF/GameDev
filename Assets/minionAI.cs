@@ -8,6 +8,9 @@ public class InteligenciaEsqueleto : MonoBehaviour
     public Transform player; 
     public Animator anim;
     public float distanciaParaAtacar = 2.0f;
+    [Header("Configuración de Visión")]
+    [Tooltip("Pon 0 para visión infinita (comportamiento original), o un número mayor para limitar la visión.")]
+    public float distanciaDeVision = 0f;
     
     public float tempoEntreAtaques = 1.5f; 
     private float temporizador; 
@@ -57,34 +60,50 @@ public class InteligenciaEsqueleto : MonoBehaviour
     {
         if (estaMorto) return; 
 
+        // Calculamos a qué distancia está el jugador
         float distancia = Vector3.Distance(transform.position, player.position);
 
-        if (distancia > distanciaParaAtacar)
+        // EL TRUCO DE COMPATIBILIDAD:
+        // Es verdadero SI la visión está en 0 (comportamiento original) O SI el jugador está en rango.
+        bool puedeVerAlJugador = (distanciaDeVision <= 0f) || (distancia <= distanciaDeVision);
+
+        if (puedeVerAlJugador)
         {
-            agent.isStopped = false;
-            agent.SetDestination(player.position);
+            // --- AQUÍ EMPIEZA EL COMPORTAMIENTO EXACTO DEL CÓDIGO ORIGINAL ---
+            if (distancia > distanciaParaAtacar)
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.position); // Lo persigue
+            }
+            else 
+            {
+                agent.isStopped = true; // Se detiene para atacar
+                
+                Vector3 direcaoOlhar = new Vector3(player.position.x, transform.position.y, player.position.z);
+                transform.LookAt(direcaoOlhar);
+                
+                if (Time.time >= temporizador)
+                {
+                    anim.SetTrigger("attack");
+                    
+                    PlayerMovement scriptPlayer = player.GetComponent<PlayerMovement>();
+                    if (scriptPlayer != null)
+                    {
+                        scriptPlayer.ReceberDano(danoDoAtaque, transform);
+                    }
+
+                    temporizador = Time.time + tempoEntreAtaques; 
+                }
+            }
         }
         else
         {
-            agent.isStopped = true;
-            
-            Vector3 direcaoOlhar = new Vector3(player.position.x, transform.position.y, player.position.z);
-            transform.LookAt(direcaoOlhar);
-            
-            if (Time.time >= temporizador)
-            {
-                anim.SetTrigger("attack");
-                
-                PlayerMovement scriptPlayer = player.GetComponent<PlayerMovement>();
-                if (scriptPlayer != null)
-                {
-                    scriptPlayer.ReceberDano(danoDoAtaque, transform);
-                }
-
-                temporizador = Time.time + tempoEntreAtaques; 
-            }
+            // --- NUEVA LÓGICA DE ESPERA ---
+            // Solo entra aquí si en Unity pusiste distanciaDeVision mayor a 0 y el jugador está lejos
+            agent.isStopped = true; 
         }
 
+        // Actualiza la animación de caminar
         anim.SetFloat("Speed", agent.velocity.magnitude);
     }
 

@@ -10,6 +10,7 @@ public class BossController : MonoBehaviour
     public PlayerMovement scriptPlayer; // Referência ao teu script
     public Transform magicPoint; // O Empty Object na mão do boss
     public LineRenderer magicBeam; // O Line Renderer do feixe
+    public MurallaQueBaja murallaDelNivel;
 
     private Animator anim;
     private NavMeshAgent agent;
@@ -248,6 +249,10 @@ IEnumerator RotinaMagia()
 
         if (vidaAtual <= 0)
         {
+            if (murallaDelNivel != null)
+            {
+                murallaDelNivel.ActivarBajada();
+            }
             Morrer();
         }
     }
