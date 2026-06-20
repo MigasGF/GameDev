@@ -43,7 +43,7 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639175132232071607
+  lastModified: 639175699703269278
   FileSizes:
   - Name: Desktop
     Value: 1154
@@ -240,7 +240,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -8230622414129850312}
   cacheVersion: 131859
-  cacheTime: 639175132232071607
+  cacheTime: 639175699703269278
   SerializableEventsDict:
   - key: event:/ArmorRattle
     index: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639175132232025178
+  lastModified: 639175699703269278
   FileSizes:
   - Name: Desktop
     Value: 142560
