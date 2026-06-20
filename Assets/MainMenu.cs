@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // ESTA LÍNEA ES VITAL para cambiar de niveles
+using UnityEngine.SceneManagement;
 
-public class MenuPrincipal : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-    // Esta es la función que activará el botón
-    public void EmpezarJuego()
+    public void Jogar()
     {
-        // El nombre entre comillas DEBE ser exactamente igual al de tu escena
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("MainGame"); 
     }
 }
