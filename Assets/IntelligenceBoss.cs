@@ -12,6 +12,12 @@ public class IntelligenceBoss : MonoBehaviour
     public Animator anim;
     public MurallaQueBaja murallaDelNivel;
 
+    // ==========================================
+    // NOVO: Referência para a parede da Arena!
+    [Header("Eventos da Arena")]
+    public MurallaQueBaja paredeDaArena; 
+    // ==========================================
+
     [Header("Distâncias")]
     public float distanciaDespertar = 15f; // Distância para ele acordar e gritar!
     public float distanciaParaMagia = 10f; 
@@ -182,23 +188,29 @@ public class IntelligenceBoss : MonoBehaviour
             agent.isStopped = true;
             agent.enabled = false;
             DroparCristal();
+
+            // ==========================================================
+            // NOVO: Manda a parede descer se ela estiver configurada!
+            if (paredeDaArena != null)
+            {
+                paredeDaArena.ActivarBajada();
+            }
+            // ==========================================================
+
             Destroy(gameObject, 5f);
         }
     }
 
     void DroparCristal()
     {
-        // Verifica se tens cristais na lista
         if (cristaisParaDropar != null && cristaisParaDropar.Length > 0)
         {
-            // O Unity escolhe um número à sorte entre 0 e o número de cristais que lá puseste
             int indiceSorteado = Random.Range(0, cristaisParaDropar.Length);
             
             GameObject cristalEscolhido = cristaisParaDropar[indiceSorteado];
 
             if (cristalEscolhido != null)
             {
-                // Cria o cristal na posição do Boss, mas um bocadinho mais acima (Vector3.up) para não ficar enterrado no chão
                 Instantiate(cristalEscolhido, transform.position + Vector3.up * 1.5f, Quaternion.identity);
                 Debug.Log("O Boss dropou o item: " + cristalEscolhido.name);
             }

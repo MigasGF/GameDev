@@ -1,20 +1,54 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Vital para cambiar de nivel
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Asegúrate de poner el nombre EXACTO de tu escena de juego
-    public string nombreDelNivel = "SampleScene"; 
+    public GameObject painelLoading;
+    public GameObject botaoPlay;
+    public Slider barraDeProgresso;
 
-    public void IniciarJuego()
+    [Range(0.1f, 2f)] public float velocidadeDaBarra = 0.8f; 
+
+    public void Jogar()
     {
-        // Esto carga tu nivel principal
-        SceneManager.LoadScene(nombreDelNivel); 
+        StartCoroutine(CarregarCenaAssincrona("MainGame"));
     }
 
-    public void SalirJuego()
+    IEnumerator CarregarCenaAssincrona(string nomeDaCena)
     {
-        Application.Quit();
-        Debug.Log("El juego se ha cerrado"); // Esto solo se ve en el editor
+        botaoPlay.SetActive(false);
+        painelLoading.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f); 
+
+        AsyncOperation operacao = SceneManager.LoadSceneAsync(nomeDaCena);
+        
+        operacao.allowSceneActivation = false;
+
+        float progressoAlvo = 0f;
+
+        while (!operacao.isDone)
+        {
+            if (operacao.progress >= 0.9f)
+            {
+                progressoAlvo = 1f; 
+            }
+            else
+            {
+                progressoAlvo = operacao.progress / 0.9f;
+            }
+
+            barraDeProgresso.value = Mathf.MoveTowards(barraDeProgresso.value, progressoAlvo, Time.deltaTime * velocidadeDaBarra);
+
+            if (Mathf.Approximately(barraDeProgresso.value, 1f))
+            {
+                yield return new WaitForSeconds(0.2f);
+                operacao.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
     }
 }
