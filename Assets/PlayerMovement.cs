@@ -4,7 +4,7 @@ using FMODUnity; // Obrigatório para o som FMOD funcionar
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
-{
+{   
     private float rotationVelocity;
     public float speed = 5f;
     public float rotationSpeed = 720f;
@@ -83,12 +83,17 @@ public class PlayerMovement : MonoBehaviour
     [field: SerializeField] private EventReference shieldRaise;
     [field: SerializeField] private EventReference shieldBlock;
 
+    [Header("Sistema de Morte")]
+    public GameObject mensagemMorteUI; 
+    
+
     void Start()
     {
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         mainCamera = Camera.main.transform;
         anim.applyRootMotion = false;
+        if (mensagemMorteUI != null) mensagemMorteUI.SetActive(false);
 
         // --- SISTEMA DE CHECKPOINTS ---
         if (PlayerPrefs.GetInt("TieneCheckpoint", 0) == 1)
@@ -358,6 +363,7 @@ public class PlayerMovement : MonoBehaviour
             estaMorto = true;
             anim.SetTrigger("die"); 
             controller.enabled = false;
+            if (mensagemMorteUI != null) mensagemMorteUI.SetActive(true);
             Debug.Log("Morreste!");
             StartCoroutine(RotinaRecarregarCena());
         }
@@ -439,7 +445,7 @@ public class PlayerMovement : MonoBehaviour
     System.Collections.IEnumerator RotinaRecarregarCena()
     {
         // Esperamos 3 segundos reales para que la animación de muerte termine
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(5f);
         
         // Recargamos la escena en la que estamos actualmente
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

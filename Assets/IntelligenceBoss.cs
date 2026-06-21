@@ -4,7 +4,10 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class IntelligenceBoss : MonoBehaviour
-{
+{   
+    [Header("Sistema de Save")]
+    public string idDoBoss = "Boss2";
+
     [Header("Referências")]
     public NavMeshAgent agent;
     public Transform player;
@@ -48,7 +51,15 @@ public class IntelligenceBoss : MonoBehaviour
     public GameObject[] cristaisParaDropar;
 
     void Start()
-    {
+    {   
+        if (PlayerPrefs.GetInt(idDoBoss, 0) == 1)
+        {
+            if (murallaDelNivel != null) murallaDelNivel.ActivarBajada();
+            if (paredeDaArena != null) paredeDaArena.ActivarBajada(); // Este tem duas paredes!
+            Destroy(gameObject); 
+            return;
+        }
+
         agent = GetComponent<NavMeshAgent>();
         vidaAtual = vidaTotal;
         
@@ -176,11 +187,15 @@ public class IntelligenceBoss : MonoBehaviour
         if (barraVidaBoss != null) barraVidaBoss.value = vidaAtual;
 
         if (vidaAtual <= 0)
-        {
+        {   
+            PlayerPrefs.SetInt(idDoBoss, 1);
+            PlayerPrefs.Save();
+
             if (murallaDelNivel != null)
             {
                 murallaDelNivel.ActivarBajada();
             }
+            
             estaMorto = true;
             if (anim != null) anim.SetTrigger("die");
             if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(false);

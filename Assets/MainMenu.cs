@@ -12,7 +12,10 @@ public class MainMenuManager : MonoBehaviour
     [Range(0.1f, 2f)] public float velocidadeDaBarra = 0.8f; 
 
     public void Jogar()
-    {
+    {   
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        
         StartCoroutine(CarregarCenaAssincrona("MainGame"));
     }
 

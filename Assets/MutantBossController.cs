@@ -4,7 +4,10 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class MutantBossController : MonoBehaviour
-{
+{   
+    [Header("Sistema de Save")]
+    public string idDoBoss = "Boss3";
+
     [Header("Referências Principais")]
     public NavMeshAgent agent;
     public Transform player;
@@ -43,7 +46,14 @@ public class MutantBossController : MonoBehaviour
     public GameObject[] cristaisParaDropar;
 
     void Start()
-    {
+    {   
+        if (PlayerPrefs.GetInt(idDoBoss, 0) == 1)
+        {
+            if (murallaDelNivel != null) murallaDelNivel.ActivarBajada(); 
+            Destroy(gameObject); 
+            return;
+        }
+
         agent = GetComponent<NavMeshAgent>();
         vidaAtual = vidaTotal;
         
@@ -170,6 +180,9 @@ public class MutantBossController : MonoBehaviour
         if (vidaAtual <= 0)
         {
             estaMorto = true;
+
+            PlayerPrefs.SetInt(idDoBoss, 1);
+            PlayerPrefs.Save();
             
             // 1. Activar la muralla
             if (murallaDelNivel != null)
