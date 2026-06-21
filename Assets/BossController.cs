@@ -33,6 +33,7 @@ public class BossController : MonoBehaviour
 
     [Header("UI do Boss")]
     public Slider barraVidaBoss;
+    public VictoryManager victoryManager; // Referência ao VictoryManager para mostrar a tela de vitória
 
     [Header("Desvio")]
     public float desvio = -60f;
@@ -287,6 +288,11 @@ IEnumerator RotinaMagia()
         agent.enabled = false;
         
         DroparCristal();
+
+        if (victoryManager != null)
+        {
+            victoryManager.Invoke("MostrarVictoria", 3f); 
+        }
         
         Destroy(gameObject, 5f); // Destrói o corpo do boss após 5 segundos (opcional)
     }
