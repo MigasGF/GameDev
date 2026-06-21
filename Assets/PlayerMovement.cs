@@ -322,6 +322,23 @@ public class PlayerMovement : MonoBehaviour
                 PlaySwordImpact(0f); // Som FMOD Golem
             }
         }
+        // =======================================================
+        // NUEVO: Buscar y atacar al Nature Boss (MutantBossController)
+        MutantBossController bossNature = FindObjectOfType<MutantBossController>();
+        if (bossNature != null)
+        {
+            Vector3 posicaoPlayerNoChao = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 posicaoBossNoChao = new Vector3(bossNature.transform.position.x, 0, bossNature.transform.position.z);
+            float distanciaBoss = Vector3.Distance(posicaoPlayerNoChao, posicaoBossNoChao);
+            
+            if (distanciaBoss <= (alcanceDoAtaque + 5.0f)) 
+            {
+                bossNature.ReceberDano(danoDoAtaque);
+                PlaySwordImpact(0f); // Som FMOD Boss
+                Debug.Log("Le pegaste al Nature Boss!");
+            }
+        }
+        // =======================================================
     }
 
     public void ReceberDano(float dano, Transform atacante)

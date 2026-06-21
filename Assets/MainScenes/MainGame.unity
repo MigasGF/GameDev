@@ -3896,7 +3896,7 @@ MonoBehaviour:
   bolaDeFogoPrefab: {fileID: 0}
   pontoDeDisparo: {fileID: 0}
   barraVidaBoss: {fileID: 835019145}
-  vidaTotal: 500
+  vidaTotal: 300
   cristaisParaDropar:
   - {fileID: 1075270715}
   - {fileID: 1041906813}
@@ -44147,7 +44147,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0.023514448, y: -0.000000029794084, z: 7.0078526e-10, w: 0.9997235}
-  m_LocalPosition: {x: -0.4275, y: 2.726, z: 5.5}
+  m_LocalPosition: {x: -0.0275, y: 2.726, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110906,7 +110906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
       propertyPath: m_LocalPosition.y
@@ -110914,7 +110914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 655813f3330acfa43b19b0b2eff89c41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -134504,13 +134504,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base mesh MonsterMutant7 skin1
       objectReference: {fileID: 0}
+    - target: {fileID: 3490026887102114920, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
       propertyPath: m_LocalScale.z
@@ -181126,7 +181130,7 @@ Transform:
   m_GameObject: {fileID: 2137985254}
   serializedVersion: 2
   m_LocalRotation: {x: 0.02351445, y: -0.000000029794085, z: 7.0078543e-10, w: 0.9997235}
-  m_LocalPosition: {x: -0.4275, y: 2.726, z: 5.5}
+  m_LocalPosition: {x: -0.0275, y: 2.726, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
