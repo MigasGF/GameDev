@@ -18,21 +18,28 @@ public class FireBall : MonoBehaviour
         transform.Translate(Vector3.forward * velocidade * Time.deltaTime);
     }
 
-    // Deteta quando colide com o jogador ou com o cenário
-    private void OnTriggerEnter(Collider outro)
+private void OnTriggerEnter(Collider outro)
     {
-        // Se tocar no Cavaleiro (que tem a Tag "Player")
+        // ESTA LINHA VAI DENUNCIAR O CULPADO NA CONSOLA:
+        Debug.Log("A bola de fogo explodiu porque bateu em: " + outro.name + " (Tag: " + outro.tag + ")");
+
+        // 1. Ignora o Boss e Inimigos
+        if (outro.CompareTag("Boss") || outro.CompareTag("Inimigo"))
+        {
+            return; 
+        }
+
+        // 2. Dá dano ao Player
         if (outro.CompareTag("Player")) 
         {
             PlayerMovement scriptPlayer = outro.GetComponent<PlayerMovement>();
             if (scriptPlayer != null)
             {
-                // Envia o dano e a própria posição da bola para o cálculo do escudo direcional!
                 scriptPlayer.ReceberDano(dano, transform);
             }
         }
         
-        // Explode/Desaparece mal toque em qualquer obstáculo (chão, paredes ou jogador)
+        // 3. Destrói a bola
         Destroy(gameObject);
     }
 }
