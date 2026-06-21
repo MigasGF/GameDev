@@ -82,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
     [field: SerializeField] private EventReference shieldRaise;
     [field: SerializeField] private EventReference shieldBlock;
 
+    // --- LANDING DETECTION ---
+    private bool wasInAir = false;
+    private PlayerFootsteps playerFootsteps;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -103,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (boia != null) boia.SetActive(false);
         if (colliderEspada != null) colliderEspada.enabled = false;
+        playerFootsteps = GetComponent<PlayerFootsteps>();
     }
 
     void Update()
@@ -116,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // --- SHIELD RAISE SOUND (FMOD) ---
-        // Só toca o som do escudo a levantar se a postura não estiver quebrada
         if (Input.GetMouseButtonDown(1) && !bloqueioQuebrado)
         {
             if (!shieldRaise.IsNull)
@@ -162,11 +166,24 @@ public class PlayerMovement : MonoBehaviour
                 else velocidadeVertical = forcaSalto;
 
                 anim.SetTrigger("jump");
+
+                // Armor rattle on jump launch
+                PlayArmorRattle(runIntensity);
                 
                 if (boia != null) boia.SetActive(false);
                 anim.SetBool("inWater", false);
             }
         }
+
+        // --- LANDING DETECTION ---
+        bool isGroundedNow = controller.isGrounded || noFundoDoPoco;
+        if (wasInAir && isGroundedNow)
+        {
+            // Just landed — play armor rattle and loud footstep
+            PlayArmorRattle(runIntensity);
+            if (playerFootsteps != null) playerFootsteps.PlayLandingFootstep();
+        }
+        wasInAir = !isGroundedNow;
 
         if (!noFundoDoPoco || velocidadeVertical > 0)
         {
@@ -367,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(0.2f);
             Instantiate(prefabCorteAr, pontoDisparoCorte.position, transform.rotation);
-            yield return new WaitForSecondsRealtime(0.3f); // Espera o resto do tempo
+            yield return new WaitForSecondsRealtime(0.3f);
         }
         else
         {

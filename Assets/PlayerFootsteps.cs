@@ -45,12 +45,22 @@ public class PlayerFootsteps : MonoBehaviour
         footstep.start();
         footstep.release();
 
-        // Play armor rattle (Medium intensity) with each footstep
+        // Play armor rattle (Light intensity) with each footstep
         if (playerMovement != null)
         {
-            playerMovement.PlayArmorRattle(playerMovement.runIntensity);
+            playerMovement.PlayArmorRattle(0f); // Light
         }
     }
+    public void PlayLandingFootstep()
+    {
+        EventInstance footstep = RuntimeManager.CreateInstance(footstepEvent);
+        footstep.setParameterByName(surfaceParameterName, currentSurface);
+        footstep.setVolume(1.5f); // Louder than normal footsteps
+        RuntimeManager.AttachInstanceToGameObject(footstep, gameObject);
+        footstep.start();
+        footstep.release();
+    }
+
     // When player enters a stone zone
     void OnTriggerEnter(Collider other)
     {

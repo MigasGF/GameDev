@@ -43,11 +43,38 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639175699703269278
+  lastModified: 639176864509699082
   FileSizes:
   - Name: Desktop
-    Value: 1154
+    Value: 1306
   Exists: 1
+--- !u!114 &-7995084222464383084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Heal
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Heal
+  Guid:
+    Data1: 1365394629
+    Data2: 1203122646
+    Data3: 541536670
+    Data4: -581069328
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1210
 --- !u!114 &-7475660102034847664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,13 +261,17 @@ MonoBehaviour:
   - {fileID: 7670855658182080348}
   - {fileID: -8250024724903030697}
   - {fileID: 8621843286805209215}
+  - {fileID: 5380608218490066369}
+  - {fileID: 8689054943762875982}
+  - {fileID: 4269906182271183741}
+  - {fileID: -7995084222464383084}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6480384270972917931}
   StringsBanks:
   - {fileID: -8230622414129850312}
   cacheVersion: 131859
-  cacheTime: 639175699703269278
+  cacheTime: 639176864509699082
   SerializableEventsDict:
   - key: event:/ArmorRattle
     index: 0
@@ -254,6 +285,14 @@ MonoBehaviour:
     index: 4
   - key: event:/ShieldEngage
     index: 5
+  - key: event:/Hurt
+    index: 6
+  - key: event:/Death
+    index: 7
+  - key: event:/Eat
+    index: 8
+  - key: event:/Heal
+    index: 9
 --- !u!114 &469855832036067595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +320,33 @@ MonoBehaviour:
   - Normal
   - Heavy
   Exists: 1
+--- !u!114 &4269906182271183741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Eat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Eat
+  Guid:
+    Data1: -1743275597
+    Data2: 1176295331
+    Data3: 1674727354
+    Data4: -1198487931
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1210
 --- !u!114 &4740940719935775474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +374,33 @@ MonoBehaviour:
   - Stone
   - Wood
   Exists: 1
+--- !u!114 &5380608218490066369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Hurt
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Hurt
+  Guid:
+    Data1: 1181160588
+    Data2: 1135797169
+    Data3: 866219706
+    Data4: 58049755
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &6042328728912169114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,10 +471,10 @@ MonoBehaviour:
   Path: FMODProject/ES_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639175699703269278
+  lastModified: 639176864509669082
   FileSizes:
   - Name: Desktop
-    Value: 142560
+    Value: 208320
   Exists: 1
 --- !u!114 &7056342958546983389
 MonoBehaviour:
@@ -520,6 +613,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1255
+--- !u!114 &8689054943762875982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Death
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Death
+  Guid:
+    Data1: 430404510
+    Data2: 1331930880
+    Data3: 625354373
+    Data4: -1097851433
+  Banks:
+  - {fileID: 6480384270972917931}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1950
 --- !u!114 &8745465037728641653
 MonoBehaviour:
   m_ObjectHideFlags: 0
