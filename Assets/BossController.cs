@@ -4,7 +4,10 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
-{
+{   
+    [Header("Sistema de Save")]
+    public string idDoBoss = "Boss1";
+
     [Header("Referências")]
     public Transform player;
     public PlayerMovement scriptPlayer; // Referência ao teu script
@@ -59,7 +62,14 @@ public class BossController : MonoBehaviour
     public GameObject[] cristaisParaDropar;
 
     void Start()
-    {
+    {   
+        if (PlayerPrefs.GetInt(idDoBoss, 0) == 1)
+        {
+            if (murallaDelNivel != null) murallaDelNivel.ActivarBajada(); // Abre logo a porta!
+            Destroy(gameObject); // O Boss não chega a nascer
+            return;
+        }
+
         anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         
@@ -277,6 +287,10 @@ IEnumerator RotinaMagia()
     {
         estaMorto = true;
         PararMovimento();
+
+        PlayerPrefs.SetInt(idDoBoss, 1);
+        PlayerPrefs.Save();
+        
         if (magicBeam != null) magicBeam.enabled = false;
 
         if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(false);
