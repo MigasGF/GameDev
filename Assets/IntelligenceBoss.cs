@@ -10,6 +10,7 @@ public class IntelligenceBoss : MonoBehaviour
     public Transform player;
     public PlayerMovement scriptPlayer; 
     public Animator anim;
+    public MurallaQueBaja murallaDelNivel;
 
     [Header("Distâncias")]
     public float distanciaDespertar = 15f; // Distância para ele acordar e gritar!
@@ -170,6 +171,10 @@ public class IntelligenceBoss : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
+            if (murallaDelNivel != null)
+            {
+                murallaDelNivel.ActivarBajada();
+            }
             estaMorto = true;
             if (anim != null) anim.SetTrigger("die");
             if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(false);

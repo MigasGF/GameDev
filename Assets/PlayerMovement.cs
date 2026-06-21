@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity; // Obrigatório para o som FMOD funcionar
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -88,6 +89,19 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         mainCamera = Camera.main.transform;
         anim.applyRootMotion = false;
+
+        // --- SISTEMA DE CHECKPOINTS ---
+        if (PlayerPrefs.GetInt("TieneCheckpoint", 0) == 1)
+        {
+            float posX = PlayerPrefs.GetFloat("CheckpointX");
+            float posY = PlayerPrefs.GetFloat("CheckpointY");
+            float posZ = PlayerPrefs.GetFloat("CheckpointZ");
+            
+            // Apagamos el controller un milisegundo para poder teletransportar al jugador sin problemas físicos
+            controller.enabled = false;
+            transform.position = new Vector3(posX, posY, posZ);
+            controller.enabled = true;
+        }
 
         if (barraVidaPlayer != null)
         {
@@ -345,6 +359,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("die"); 
             controller.enabled = false;
             Debug.Log("Morreste!");
+            StartCoroutine(RotinaRecarregarCena());
         }
     }
 
@@ -402,5 +417,31 @@ public class PlayerMovement : MonoBehaviour
         if (imagemDaBarra != null) imagemDaBarra.color = corNormalBarra; 
 
         Debug.Log("Recuperaste a postura. Já podes bloquear de novo!");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Verificamos si el jugador chocó con un objeto que tiene la etiqueta "Checkpoint"
+        if (other.CompareTag("Checkpoint"))
+        {
+            // Guardamos las coordenadas del cubo
+            PlayerPrefs.SetFloat("CheckpointX", other.transform.position.x);
+            PlayerPrefs.SetFloat("CheckpointY", other.transform.position.y);
+            PlayerPrefs.SetFloat("CheckpointZ", other.transform.position.z);
+            PlayerPrefs.SetInt("TieneCheckpoint", 1);
+            PlayerPrefs.Save();
+            
+            Debug.Log("¡Checkpoing guardado exitosamente desde el Caballero!");
+            
+            // Apagamos el collider del cubo para no guardar infinitas veces
+            other.enabled = false; 
+        }
+    }
+    System.Collections.IEnumerator RotinaRecarregarCena()
+    {
+        // Esperamos 3 segundos reales para que la animación de muerte termine
+        yield return new WaitForSecondsRealtime(3f);
+        
+        // Recargamos la escena en la que estamos actualmente
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

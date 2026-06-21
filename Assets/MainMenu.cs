@@ -1,10 +1,20 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // Vital para cambiar de nivel
 
-public class MenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
-    public void Jogar()
+    // Asegúrate de poner el nombre EXACTO de tu escena de juego
+    public string nombreDelNivel = "SampleScene"; 
+
+    public void IniciarJuego()
     {
-        SceneManager.LoadScene("MainGame"); 
+        // Esto carga tu nivel principal
+        SceneManager.LoadScene(nombreDelNivel); 
+    }
+
+    public void SalirJuego()
+    {
+        Application.Quit();
+        Debug.Log("El juego se ha cerrado"); // Esto solo se ve en el editor
     }
 }

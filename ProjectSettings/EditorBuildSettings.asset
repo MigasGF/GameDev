@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PrincipalMenu.unity
     guid: a1424377adccb1c4a98af99e57866b78
   - enabled: 0
@@ -19,9 +19,12 @@ EditorBuildSettings:
     guid: d40855c155027044bbeab5b10bd11cac
   - enabled: 0
     path: Assets/MainMenu.unity
-    guid: 2e3bc58f1f4877a4280951c69271c44d
-  - enabled: 0
-    path: Assets/MainGame.unity
+    guid: 9d90d21fa1bbadb4eabd774d11413597
+  - enabled: 1
+    path: Assets/MainScenes/MainMenu1.unity
+    guid: 7dd079e2afc66d645a4722ad55f2005f
+  - enabled: 1
+    path: Assets/MainScenes/MainGame.unity
     guid: e5b2f2b11b033804abb0221fe0352dbb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

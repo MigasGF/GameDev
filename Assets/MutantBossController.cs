@@ -1,69 +1,98 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MutantBossController : MonoBehaviour
 {
-    [Header("Referencias Principales")]
+    [Header("Referências Principais")]
+    public NavMeshAgent agent;
     public Transform player;
-    public PlayerMovement scriptPlayer; // El script de tu jugador
-    public MurallaQueBaja murallaDelNivel; // El script de la muralla que hicimos antes
+    public PlayerMovement scriptPlayer; 
+    public Animator anim;
+    
+    [Header("Mecânica do Nível")]
+    public MurallaQueBaja murallaDelNivel; // Referencia para bajar la muralla al morir
 
-    private Animator anim;
-    private NavMeshAgent agent;
+    [Header("Distâncias")]
+    public float distanciaDespertar = 15f; 
+    public float distanciaParaMagia = 10f; 
+    public float distanciaCorpoACorpo = 4f; 
 
-    [Header("Atributos del Boss Mutante")]
-    public float vidaTotal = 500f;
+    [Header("Ataques e Dano")]
+    public float danoCorpoACorpo = 25f;
+    public float cooldownSoco = 1.5f;
+    public float cooldownMagia = 6f;
+    private float tempoProximaMagia = 0f;
+
+    [Header("Magia (Bola de Fogo)")]
+    public GameObject bolaDeFogoPrefab;
+    public Transform pontoDeDisparo;
+
+    [Header("Status de Vida")]
+    public Slider barraVidaBoss;
+    public float vidaTotal = 300f;
     private float vidaAtual;
     private bool estaMorto = false;
-    private bool estaAtacar = false;
+    
+    // VARIÁVEIS CINEMÁTICAS
+    private bool estaAtacar = false; 
+    private bool bossAtivo = false; 
 
-    [Header("Combate")]
-    public float distanciaAtaque = 3.5f; // A qué distancia tira el golpe
-    public float danoAtaque = 40f;
-    public float cooldownAtaque = 2f; // Tiempo de descanso entre golpes
-
-    [Header("Sonidos (¡Tus Enchufes!)")]
-    public AudioSource audioSource;
-    public AudioClip sonidoRugidoInicial;
-    public AudioClip sonidoAtaque;
-    public AudioClip sonidoMuerte;
+    [Header("Sistema de Loot")]
+    public GameObject[] cristaisParaDropar;
 
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         vidaAtual = vidaTotal;
-
-        // Si le pones un sonido de rugido, sonará apenas aparezca/despierte
-        if (audioSource != null && sonidoRugidoInicial != null)
+        
+        if (barraVidaBoss != null)
         {
-            audioSource.PlayOneShot(sonidoRugidoInicial);
+            barraVidaBoss.maxValue = vidaTotal;
+            barraVidaBoss.value = vidaAtual;
+            barraVidaBoss.gameObject.SetActive(false); 
         }
     }
 
     void Update()
     {
-        // Si está muerto, no hay jugador, o está en medio de un ataque, no hace nada
-        if (estaMorto || player == null || estaAtacar) return;
+        if (estaMorto || player == null) return;
 
-        float distanciaParaPlayer = Vector3.Distance(transform.position, player.position);
+        float distancia = Vector3.Distance(transform.position, player.position);
 
-        if (distanciaParaPlayer <= distanciaAtaque)
+        // 1. O DESPERTAR DO BOSS
+        if (!bossAtivo)
         {
-            StartCoroutine(RutinaAtaque());
+            if (distancia <= distanciaDespertar)
+            {
+                StartCoroutine(RotinaDespertar());
+            }
+            return; 
         }
+
+        if (estaAtacar) return;
+
+        OlharParaPlayer();
+
+        // 2. CORPO A CORPO (Aquí el jefe ataca si estás cerca)
+        if (distancia <= distanciaCorpoACorpo)
+        {
+            StartCoroutine(RotinaSoco());
+        }
+        // 3. MAGIA (BOLA DE FOGO)
+        else if (distancia <= distanciaParaMagia && Time.time >= tempoProximaMagia)
+        {
+            tempoProximaMagia = Time.time + cooldownMagia;
+            StartCoroutine(RotinaMagia());
+        }
+        // 4. PERSEGUIR O JOGADOR
         else
         {
-            PerseguirPlayer();
+            agent.isStopped = false;
+            agent.SetDestination(player.position);
+            if (anim != null) anim.SetBool("isRunning", true);
         }
-    }
-
-    private void PerseguirPlayer()
-    {
-        agent.isStopped = false;
-        agent.SetDestination(player.position);
-        anim.SetBool("isWalking", true); // Activa la animación de movimiento
     }
 
     private void OlharParaPlayer()
@@ -73,87 +102,107 @@ public class MutantBossController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direcao), Time.deltaTime * 5f);
     }
 
-    IEnumerator RutinaAtaque()
+    IEnumerator RotinaDespertar()
     {
-        estaAtacar = true;
-        
-        // Se detiene para pegar
+        bossAtivo = true; 
+        estaAtacar = true; 
+
         agent.isStopped = true;
-        anim.SetBool("isWalking", false);
-        OlharParaPlayer();
+        if (anim != null) anim.SetBool("isRunning", false);
+        
+        if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(true);
+        if (anim != null) anim.SetTrigger("wakeUp"); 
 
-        // Llama a la animación "attack1" (o la que elijas)
-        anim.SetTrigger("Attack");
+        yield return new WaitForSeconds(3f); 
+        
+        estaAtacar = false; 
+    }
 
-        // Reproduce el sonido del golpe al instante
-        if (audioSource != null && sonidoAtaque != null)
-        {
-            audioSource.PlayOneShot(sonidoAtaque);
-        }
+    IEnumerator RotinaSoco()
+    {
+        estaAtacar = true; 
+        agent.isStopped = true;
+        if (anim != null) anim.SetBool("isRunning", false);
+        if (anim != null) anim.SetTrigger("attackMelee"); 
 
-        // IMPORTANTE: Espera 1 segundo para que la animación llegue al momento del impacto real
+        // Espera un segundo para que la animación del golpe conecte visualmente
         yield return new WaitForSeconds(1f);
 
-        // Verifica si el jugador no se escapó rodando y sigue en rango
-        if (Vector3.Distance(transform.position, player.position) <= distanciaAtaque + 1f)
+        // APLICACIÓN DE DAÑO AL JUGADOR
+        if (Vector3.Distance(transform.position, player.position) <= distanciaCorpoACorpo + 1f)
         {
             if (scriptPlayer != null)
             {
-                scriptPlayer.ReceberDano(danoAtaque, transform);
+                scriptPlayer.ReceberDano(danoCorpoACorpo, transform);
             }
         }
 
-        // Tiempo de recuperación antes de volver a caminar/pegar
-        yield return new WaitForSeconds(cooldownAtaque);
-        estaAtacar = false;
+        yield return new WaitForSeconds(cooldownSoco);
+        estaAtacar = false; 
     }
 
-    // Esta es la función CLAVE que se comunica con las armas de tu equipo
+    IEnumerator RotinaMagia()
+    {
+        estaAtacar = true; 
+        agent.isStopped = true;
+        if (anim != null) anim.SetBool("isRunning", false);
+        if (anim != null) anim.SetTrigger("attackRanged"); 
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (bolaDeFogoPrefab != null && pontoDeDisparo != null)
+        {
+            Instantiate(bolaDeFogoPrefab, pontoDeDisparo.position, transform.rotation);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        estaAtacar = false; 
+    }
+
     public void ReceberDano(float dano)
     {
         if (estaMorto) return;
 
         vidaAtual -= dano;
+        if (barraVidaBoss != null) barraVidaBoss.value = vidaAtual;
 
+        // LA MUERTE DEL JEFE
         if (vidaAtual <= 0)
         {
-            Morrer();
+            estaMorto = true;
+            
+            // 1. Activar la muralla
+            if (murallaDelNivel != null)
+            {
+                murallaDelNivel.ActivarBajada();
+            }
+
+            // 2. Reproducir animación y apagar barra
+            if (anim != null) anim.SetTrigger("die");
+            if (barraVidaBoss != null) barraVidaBoss.gameObject.SetActive(false);
+
+            // 3. Detener al jefe
+            agent.isStopped = true;
+            agent.enabled = false;
+            
+            // 4. Soltar Loot y destruir objeto
+            DroparCristal();
+            Destroy(gameObject, 5f);
         }
     }
 
-    private void Morrer()
+    void DroparCristal()
     {
-        estaMorto = true;
-        
-        // Detener todo movimiento
-        if (agent.enabled)
+        if (cristaisParaDropar != null && cristaisParaDropar.Length > 0)
         {
-            agent.isStopped = true;
-            agent.velocity = Vector3.zero;
-            agent.enabled = false;
+            int indiceSorteado = Random.Range(0, cristaisParaDropar.Length);
+            GameObject cristalEscolhido = cristaisParaDropar[indiceSorteado];
+
+            if (cristalEscolhido != null)
+            {
+                Instantiate(cristalEscolhido, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+                Debug.Log("O Boss dropou o item: " + cristalEscolhido.name);
+            }
         }
-        
-        anim.SetBool("isWalking", false);
-        anim.SetTrigger("Die"); // Llama a la animación "death1"
-
-        // Grito de muerte
-        if (audioSource != null && sonidoMuerte != null)
-        {
-            audioSource.PlayOneShot(sonidoMuerte);
-        }
-
-        // Apagar colisiones para que el jugador pueda pasar por encima
-        Collider col = GetComponent<Collider>();
-        if (col != null) col.enabled = false;
-
-        // ¡MAGIA! Activamos la bajada de la muralla
-        if (murallaDelNivel != null)
-        {
-            murallaDelNivel.ActivarBajada();
-            Debug.Log("Jefe derrotado. Bajando la muralla...");
-        }
-
-        // Desaparecer el cuerpo después de 5 segundos
-        Destroy(gameObject, 5f);
     }
 }

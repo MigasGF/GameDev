@@ -79,6 +79,17 @@ void Update()
     {
         if (estaMorto || player == null) return;
 
+        // Esto obliga al Boss a morir si le pones un 0 en el Inspector
+        if (vidaAtual <= 0)
+        {
+            if (murallaDelNivel != null)
+            {
+                murallaDelNivel.ActivarBajada();
+            }
+            Morrer();
+            return; 
+        }
+
         float distanciaParaPlayer = Vector3.Distance(transform.position, player.position);
 
         // 1. Lógica de Despertar
