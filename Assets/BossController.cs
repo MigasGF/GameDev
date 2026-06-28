@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class BossController : MonoBehaviour
 {   
@@ -60,6 +61,9 @@ public class BossController : MonoBehaviour
     [Header("Sistema de Loot")]
     // Estes parênteses retos [] significam que é uma "lista" onde podes pôr vários objetos
     public GameObject[] cristaisParaDropar;
+
+    [Header("Sons FMOD")]
+    [field: SerializeField] private EventReference bossAttackSpecial;
 
     void Start()
     {   
@@ -188,6 +192,12 @@ IEnumerator RotinaMagia()
         PararMovimento();
         
         anim.SetTrigger("magic"); 
+
+        // Play special attack sound when charging begins
+        if (!bossAttackSpecial.IsNull)
+        {
+            RuntimeManager.PlayOneShot(bossAttackSpecial, transform.position);
+        }
         
         // --- 1. COMEÇA A ACUMULAR ENERGIA ---
         GameObject efeitoEnergia = null; // Guardamos a referência aqui

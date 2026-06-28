@@ -97,9 +97,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{342e28d2-99e8-4e7b-a4a5-60ddf897936e}">
-		<property name="volume">
-			<value>-8</value>
-		</property>
 		<property name="name">
 			<value>Final Boss Attack Special</value>
 		</property>

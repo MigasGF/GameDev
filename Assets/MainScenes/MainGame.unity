@@ -113347,7 +113347,7 @@ MonoBehaviour:
       Data3: 770565782
       Data4: 1133946543
     Path: event:/SwordImpact
-  swingDelay: 0
+  swingDelay: 0.4
   shieldRaise:
     Guid:
       Data1: -740476033
@@ -113369,6 +113369,27 @@ MonoBehaviour:
       Data3: 866219706
       Data4: 58049755
     Path: event:/Hurt
+  splashIn:
+    Guid:
+      Data1: 1044748223
+      Data2: 1263419812
+      Data3: 1835473037
+      Data4: 687239315
+    Path: event:/SplashIn
+  splashOut:
+    Guid:
+      Data1: 2145297185
+      Data2: 1174270542
+      Data3: -1427452226
+      Data4: 2123923366
+    Path: event:/SplashOut
+  swim:
+    Guid:
+      Data1: 612044612
+      Data2: 1261654557
+      Data3: 111433635
+      Data4: -1455169110
+    Path: event:/Swim
   mensagemMorteUI: {fileID: 1408379481}
 --- !u!114 &1327127288
 MonoBehaviour:
@@ -125132,6 +125153,13 @@ MonoBehaviour:
   - {fileID: 5823537499495685669, guid: 445df73463a5f1f4faa49dc2e5493e64, type: 3}
   - {fileID: 8136265376327712186, guid: 9da352d83df718d47ba6df76d276fabf, type: 3}
   - {fileID: 8813463706807135008, guid: 9a4cda135477a1048b11f1de61a6f035, type: 3}
+  bossAttackSpecial:
+    Guid:
+      Data1: 1043072981
+      Data2: 1274908241
+      Data3: 663663798
+      Data4: 1532930111
+    Path: event:/Final Boss Attack Special
 --- !u!195 &1452232444
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -132320,6 +132348,13 @@ MonoBehaviour:
   - {fileID: 1741908227}
   - {fileID: 296722602}
   - {fileID: 1539712196}
+  uiTutorial:
+    Guid:
+      Data1: -171281463
+      Data2: 1315850399
+      Data3: -210363227
+      Data4: 1415686578
+    Path: event:/UI Tutorial
 --- !u!1001 &1530233121
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -86,6 +86,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Sons FMOD - Dano")]
     [field: SerializeField] private EventReference playerHit;
 
+    [Header("Sons FMOD - Água")]
+    [field: SerializeField] private EventReference splashIn;
+    [field: SerializeField] private EventReference splashOut;
+    [field: SerializeField] private EventReference swim;
+
+    // --- WATER SOUND STATE ---
+    private bool wasInWater = false;
+    private FMOD.Studio.EventInstance swimInstance;
+    private bool swimPlaying = false;
+
     [Header("Sistema de Morte")]
     public GameObject mensagemMorteUI; 
     
@@ -151,6 +161,50 @@ public class PlayerMovement : MonoBehaviour
         // --- 2. SISTEMA DE GRAVIDADE, SALTO E ÁGUA ---
         bool noFundoDoPoco = transform.position.y <= limiteInferiorY;
 
+        // --- WATER SOUND DETECTION ---
+        if (noFundoDoPoco && !wasInWater)
+        {
+            // Just entered water — splash in
+            if (!splashIn.IsNull)
+            {
+                RuntimeManager.PlayOneShot(splashIn, transform.position);
+            }
+        }
+        else if (!noFundoDoPoco && wasInWater)
+        {
+            // Just left water — splash out and stop swim
+            if (!splashOut.IsNull)
+            {
+                RuntimeManager.PlayOneShot(splashOut, transform.position);
+            }
+            StopSwimSound();
+        }
+
+        // --- SWIM LOOP LOGIC ---
+        if (noFundoDoPoco)
+        {
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
+            bool isMovingInWater = (h != 0f || v != 0f);
+
+            if (isMovingInWater && !swimPlaying)
+            {
+                StartSwimSound();
+            }
+            else if (!isMovingInWater && swimPlaying)
+            {
+                StopSwimSound();
+            }
+
+            // Update swim sound position to follow player
+            if (swimPlaying)
+            {
+                swimInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+            }
+        }
+
+        wasInWater = noFundoDoPoco;
+
         if (noFundoDoPoco)
         {
             if (boia != null) boia.SetActive(true);
@@ -196,9 +250,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // --- 3. SISTEMA DE MOVIMENTO ---
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(h, 0f, v).normalized;
+        float hMove = Input.GetAxisRaw("Horizontal");
+        float vMove = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(hMove, 0f, vMove).normalized;
 
         Vector3 movimentoFinal = Vector3.zero;
 
@@ -209,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
             float anguloMovimento = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
             Vector3 direcaoDoMovimento = Quaternion.Euler(0f, anguloMovimento, 0f) * Vector3.forward;
 
-            if (v < 0) 
+            if (vMove < 0) 
             {
                 float anguloOlhar = mainCamera.eulerAngles.y; 
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloOlhar, ref rotationVelocity, 0.25f, Mathf.Infinity, Time.unscaledDeltaTime);
@@ -278,6 +332,30 @@ public class PlayerMovement : MonoBehaviour
         instance.setParameterByName("Enemy", enemyType);
         instance.start();
         instance.release();
+    }
+
+    // --- SWIM SOUND HELPERS ---
+    private void StartSwimSound()
+    {
+        if (swim.IsNull) return;
+        swimInstance = RuntimeManager.CreateInstance(swim);
+        swimInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        swimInstance.start();
+        swimPlaying = true;
+    }
+
+    private void StopSwimSound()
+    {
+        if (!swimPlaying) return;
+        swimInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        swimInstance.release();
+        swimPlaying = false;
+    }
+
+    void OnDestroy()
+    {
+        // Clean up swim instance if player is destroyed while swimming
+        StopSwimSound();
     }
 
     // =========================================================
