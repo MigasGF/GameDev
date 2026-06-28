@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{789c7b47-2bc9-4d16-a896-b994343bd70b}">
+		<property name="assetPath">
+			<value>SFX/First Boss Attack 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.93750566893424037</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f26f6cce-ce7a-4374-a89f-89eb9dd913fd}</destination>
+		</relationship>
+	</object>
+</objects>

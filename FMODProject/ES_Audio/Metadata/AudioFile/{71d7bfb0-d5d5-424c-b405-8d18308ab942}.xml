@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{71d7bfb0-d5d5-424c-b405-8d18308ab942}">
+		<property name="assetPath">
+			<value>SFX/Final Boss Sound 4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.4999546485260771</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f26f6cce-ce7a-4374-a89f-89eb9dd913fd}</destination>
+		</relationship>
+	</object>
+</objects>

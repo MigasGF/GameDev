@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{90011b95-cbd5-462f-97aa-c2a97e6565e0}">
+		<property name="assetPath">
+			<value>First Boss Step 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8124943310657597</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f26f6cce-ce7a-4374-a89f-89eb9dd913fd}</destination>
+		</relationship>
+	</object>
+</objects>

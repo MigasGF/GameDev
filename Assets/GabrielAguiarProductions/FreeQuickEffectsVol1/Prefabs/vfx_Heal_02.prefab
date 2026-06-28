@@ -24481,6 +24481,7 @@ GameObject:
   - component: {fileID: 6315672695823576869}
   - component: {fileID: 532282029385329117}
   - component: {fileID: 8700035473269227422}
+  - component: {fileID: 5269696792113045158}
   m_Layer: 0
   m_Name: vfx_Heal_02
   m_TagString: Untagged
@@ -29311,3 +29312,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5269696792113045158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593464584776411535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1365394629
+      Data2: 1203122646
+      Data3: 541536670
+      Data4: -581069328
+    Path: event:/Heal
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

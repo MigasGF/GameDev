@@ -133,7 +133,7 @@
 	<object class="MixerBusPanner" id="{87785142-325a-4677-9feb-3ca16324add9}" />
 	<object class="SingleSound" id="{a5079e8c-c729-44fe-8b7a-a95d626ff0f3}">
 		<property name="length">
-			<value>303.73240362811794</value>
+			<value>307.11269841269842</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{74fc23d3-cffa-432c-87ab-39910b8ab3a7}</destination>
@@ -141,7 +141,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{3ef5ecf1-8e12-43ae-8369-ddeeddc86be5}">
 		<property name="volume">
-			<value>-8.5</value>
+			<value>-5.5</value>
 		</property>
 		<property name="name">
 			<value>Soundtrack</value>
@@ -693,7 +693,7 @@
 			<destination>{b17eae2b-2bbd-49cb-8440-aa1b20db6bae}</destination>
 		</relationship>
 		<relationship name="triggerConditions">
-			<destination>{2a472684-3ba7-4e85-be4a-61a878b8405a}</destination>
+			<destination>{55e2efb1-9447-44d7-9bed-5b51a42888fd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{c4b25bb4-9936-4f97-a615-436830fb25a0}">
@@ -797,7 +797,7 @@
 			<destination>{71b6168a-4667-488d-b867-9cdb4ecd1003}</destination>
 		</relationship>
 	</object>
-	<object class="ParameterCondition" id="{2a472684-3ba7-4e85-be4a-61a878b8405a}">
+	<object class="ParameterCondition" id="{55e2efb1-9447-44d7-9bed-5b51a42888fd}">
 		<property name="minimum">
 			<value>8</value>
 		</property>

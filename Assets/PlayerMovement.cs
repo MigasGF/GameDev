@@ -83,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
     [field: SerializeField] private EventReference shieldRaise;
     [field: SerializeField] private EventReference shieldBlock;
 
+    [Header("Sons FMOD - Dano")]
+    [field: SerializeField] private EventReference playerHit;
+
     [Header("Sistema de Morte")]
     public GameObject mensagemMorteUI; 
     
@@ -372,8 +375,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         levouPancada = true;
+
+        // Toca o som de dano do jogador
+        if (!playerHit.IsNull)
+        {
+            RuntimeManager.PlayOneShot(playerHit, transform.position);
+        }
+
         vidaAtual -= dano;
-        if (barraVidaPlayer != null) barraVidaPlayer.value = vidaAtual;
+
+        if (barraVidaPlayer != null)
+            barraVidaPlayer.value = vidaAtual;
 
         if (vidaAtual <= 0)
         {
